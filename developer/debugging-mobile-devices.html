@@ -1,0 +1,836 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>行動裝置上的除錯</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/developer/">開發人員</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">行動裝置上的除錯</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">首頁</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">一般資訊<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">布萊特灣產品概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">布萊特灣延續性概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">開放原始碼專案</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">長跑短跑影片</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">布萊特灣論壇群組和電子郵件列表</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">開發人員<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">了解 CORS </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">模塊設計模式</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">設定捲曲</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">使用</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">創建一個 JSON 網絡令牌（JWT）</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">使用港鐵 (我的追蹤) </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">使用 Wireshark 來追蹤網路流量</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">從奧亞拉遷移<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 客戶的遷移文件</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">遷移至布萊特灣分析 API </a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">移轉至視訊雲端：擷取配接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">擷取配接器：CSV 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">擷取配接器：與阿斯佩拉一起攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">擷取配接器：使用 FTPS 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">擷取配接器：使用 OIS 2.5 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">擷取配接器：使用後台 API 進行內嵌</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">擷取配接器：透過 MRSS 擷取遠端資產</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">擷取配接器：從託管的 MRSS 中擷取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot /視訊雲端CMS 連接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">備份與視訊雲端：視訊和播放清單欄位</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">擷取配接器：資訊清單檔案格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">擷取配接器：XML 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">擷取配接器：支援的內嵌格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">新增布萊特灣 DNS 伺服器以進行測試</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">布萊特灣 API 請求的身份驗證</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">現在趨勢報告參考</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">將 Oooyala 播放器用於視訊雲端內容</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">公用程式<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">基本 64 編碼工具</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">日期轉換器</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">字串編碼器</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">所有線上訓練課程</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">註冊參加講師指導訓練</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">訓練：視訊雲端簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">訓練：視訊雲端分析簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">訓練：視訊雲端基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">視頻雲端工作室培訓視頻</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">布萊特灣大學培訓課程</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">已知問題</a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<article class="bcls-article">
+  <h1>行動裝置上的除錯</h1>
+  <summary>在本主題中，您將了解如何在行動裝置上偵錯 JavaScript。在開發測試和調試移動平台上的內容可能是非常具有挑戰性的。</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">概覽</h2>
+    <p>在本文件中，您將學習如何開始在行動裝置上進行偵錯，並涵蓋下列解決方案：</p>
+    <ul>
+      <li>在 iOS 裝置上進行除錯</li>
+      <li>在安卓裝置上進行除錯</li>
+      <li>在行動裝置上使用查爾斯</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information language-editable">本文件可作為開發人員在行動裝置上進行偵錯的跳躍點。它不涵蓋移動調試的所有方法。有關一般調試的更多信息，請訪問<a href="/developer/concepts-javascript-debugging-basics.html">JavaScript調試基礎</a>文檔。</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="iOS_debugging">iOS 除錯</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>iOS 除錯的最低需求</h3>
+        <ul>
+          <li>在 Mac Mac 上運行的野生動物園版本 6 以上</li>
+          <li>智慧型手機</li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information language-editable">注意：如果您使用的是 iOS 10.3 或更新版本，請開啟「設定」並瀏覽至「一般」&gt;「關於」&gt;「憑證信任設定」，然後找到 Charles Proxy 憑證，然後將其開啟以啟用完全信任。</aside>
+      </div>
+      <div class="BCL-subsection">
+        <h3>使用 Safari 遠端除錯</h3>
+        <p>蘋果的 iOS 6 更新推出了 Safari 遠程調試，它允許您在 iOS 設備上的 Safari 應用程序中調試網頁。若要開始使用，請依照下列步驟操作：</p>
+        <ol>
+          <li>透過 USB 連接線將 iOS 裝置連接至電腦。</li>
+          <li>在您的設備上，打開<strong>設定值</strong>應用程式。選擇<strong>蘋果瀏覽器</strong>，向下滾動到頁面底部，然後打開<strong>高級</strong>菜單。啟用<strong>網頁檢查器</strong>選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="網頁檢查器" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/01-iOS.png"/>
+              <figcaption class="bcls-caption--image">網頁檢查器</figcaption>
+            </figure>
+          </li>
+          <li>仍在您的設備上，打開<strong>蘋果瀏覽器</strong>應用程序並瀏覽到任何網頁。</li>
+          <li>在Mac上，啟動<strong>蘋果瀏覽器</strong>， 打開<strong>首選項</strong>（<strong> Safari&gt;首選項</strong>），然後導航到<strong>高級</strong>部分。啟用<strong>在菜單欄中顯示“開發”菜單</strong>選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="顯示開發功能表" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/02-iOS.png"/>
+              <figcaption class="bcls-caption--image">顯示開發功能表</figcaption>
+            </figure>
+          </li>
+          <li>打開<strong>發展</strong>菜單。您將會看到列出您的 iOS 裝置。當您將滑鼠移到裝置名稱上時，您會看到您在裝置上瀏覽的網站 URL。
+            <figure class="bcls-figure"><img class="bcls-image" alt="尋找裝置" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/03-iOS.png"/>
+              <figcaption class="bcls-caption--image">尋找裝置</figcaption>
+            </figure>
+          </li>
+          <li>選擇URL和一個<strong>網頁檢查器</strong>窗口將打開，您可以從桌面預覽，檢查和調試移動瀏覽器中的內容。
+            <figure class="bcls-figure"><img class="bcls-image" alt="在桌面上進行除錯" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-iOS.png"/>
+              <figcaption class="bcls-caption--image">在桌面上進行除錯</figcaption>
+            </figure>
+          </li>
+          <li>在裡面<strong>資源資源</strong>部分中，您可以預覽和檢查網頁。將鼠標懸停在<strong>網頁檢查器</strong>將在iOS設備上的瀏覽器中突出顯示相應的元素。
+            <figure class="bcls-figure"><img class="bcls-image" alt="檢驗元素" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-iOS.png"/>
+              <figcaption class="bcls-caption--image">檢驗元素</figcaption>
+            </figure>
+          </li>
+          <li>您也可以使用<strong>調試器</strong>和<strong>安慰</strong>部分，通過設置斷點，記錄數據等來進一步調試頁面。</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information language-editable">有關如何使用Safari Web Inspector的更多詳細信息，請訪問<a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">蘋果的開發人員文檔</a>。</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="ios" -->
+  
+  <section class="bcls-section">
+    <h2 id="Android_debugging">安卓除錯</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>安卓調試的最低要求</h3>
+        <ul>
+          <li>在 Mac 或視窗上執行</li>
+          <li>安卓裝置與瀏覽器</li>
+        </ul>
+        <p class="BCL-aside">注意：本節中的步驟是使用運行 Android 4.3 的設備編寫的。</p>
+      </div>
+      <div class="BCL-subsection">
+        <h3>在您的裝置上啟用除錯</h3>
+        <p>您必須先在裝置設定中啟用 USB 偵錯，才能開始偵錯裝置上的內容。</p>
+        <ol>
+          <li>如果您運行的是Android 4.2+，則需要啟用設備的<strong>開發人員選項</strong>在您打開USB調試之前。在您的設備上，打開<strong>設定值</strong>應用，然後選擇<strong>關於手機</strong>菜單。找到您設備的<strong>內部編號</strong>然後點擊七次
+            <aside class="bcls-aside bcls-aside--tip">如果您正在執行較舊版本的 Android，您可以直接前往 [設定] &gt; [開發人員選項] 來啟用 USB 偵錯。</aside>
+          </li>
+          <li>打你設備的<strong>背部</strong>按鈕，您將看到<strong>開發人員選項</strong>設置中列出的菜單。
+            <figure class="bcls-figure"><img width="400" class="bcls-image--no-border" alt="取得開發人員選項" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/01-android.png"/>
+              <figcaption class="bcls-caption--image">取得開發人員選項</figcaption>
+            </figure>
+          </li>
+          <li>打開<strong>開發人員選項</strong>菜單，然後選中相應的框以啟用<strong>USB調試</strong>。
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="啟用 USB 除錯" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/02-android.png"/>
+              <figcaption class="bcls-caption--image">啟用 USB 除錯</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+      <div class="BCL-subsection">
+        <h3>遠程調試使用</h3>
+        <p>現在您的裝置上已啟用 USB 偵錯，請依照下列步驟透過 Chrome 啟動遠端偵錯：</p>
+        <ol>
+          <li>在您的計算機上，啟動<strong>鉻</strong>並瀏覽到<code translate="No">about:inspect</code>。在<strong>設備</strong>頁面上，啟用<strong>發現USB設備</strong>選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="探索 USB 裝置" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/03-android.png"/>
+              <figcaption class="bcls-caption--image">探索 USB 裝置</figcaption>
+            </figure>
+          </li>
+          <li>透過 USB 傳輸線將裝置連接至電腦。在您的裝置上，系統會出現一個對話方塊，詢問您是否要允許 USB 偵錯。選擇<strong>好</strong>以允許您的計算機連接到設備。
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="允許連線到裝置" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-android.png"/>
+              <figcaption class="bcls-caption--image">允許連線到裝置</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information language-editable">如果您使用的是Windows計算機，則可能需要安裝USB驅動程序。有關更多信息，請訪問<a href="//developer.android.com/tools/extras/oem-usb.html">Android開發人員文檔</a>。</aside>
+          </li>
+          <li>在您的設備上，打開<strong>鉻</strong>應用程序並瀏覽到網頁。</li>
+          <li>還給<strong>鉻</strong>在你的電腦。在<code translate="No">about:inspect</code>頁面上，您應該看到已連接的設備。在裝置名稱下方，您可以在裝置上看到 Chrome 中開啟的所有網頁清單。
+            <figure class="bcls-figure"><img class="bcls-image" alt="連線裝置" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-android.png"/>
+              <figcaption class="bcls-caption--image">連線裝置</figcaption>
+            </figure>
+          </li>
+          <li>要開始調試網頁，請選擇<strong>檢查</strong>頁面網址下方的鏈接。這將打開Chrome的<strong>開發者工具</strong>。
+            <figure class="bcls-figure"><img class="bcls-image" alt="檢查網頁" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/06-android.png"/>
+              <figcaption class="bcls-caption--image">檢查網頁</figcaption>
+            </figure>
+          </li>
+          <li>在左邊<strong>元素</strong>標籤，您可以選擇設備圖標以打開DevTool的截屏功能。這可讓您開啟內容在行動裝置上顯示的即時預覽。有關如何使用屏幕廣播與設備進行交互的更多信息，請訪問<a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging#screencasting">Google的文件</a>。</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information language-editable">有關如何使用Chrome開發者工具的詳細信息，請訪問<a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Google的開發人員文檔</a>。</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="android" -->
+  
+  <section class="bcls-section">
+    <h2 id="Charles_for_mobile">查爾斯移動</h2>
+    <div class="BCL-concept">
+      <p>查爾斯是一個 Web 代理，可以在您自己的計算機上運行，允許您記錄通過您的 Web 瀏覽器發送和接收的數據。造訪<a href="//www.charlesproxy.com/">查爾斯網站</a>有關此應用程序的更多信息。</p>
+      <div class="BCL-subsection">
+        <h3>查爾斯的最低要求</h3>
+        <ul>
+          <li>查爾斯與視窗，Mac 和 Linux 兼容</li>
+          <li>iOS 及/或安卓裝置</li>
+        </ul>
+      </div>
+      <div class="BCL-subsection">
+        <h3>在您的機器上設置查爾斯</h3>
+        <p>按照以下步驟讓查爾斯在您的電腦上運行。</p>
+        <ol>
+          <li><a href="//www.charlesproxy.com/download/">下載</a>並在您的計算機上安裝Charles。</li>
+          <li>在您的計算機上運行<strong>查爾斯</strong>。從功能表中選取「<strong> &gt; 代理伺服器設定</strong>」。確定已指派連接埠 (例如 8888)，且已選取<strong> [啟用透明 HTTP 代理</strong> ] 選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="代理主機設定" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/proxy-settings.png"/>
+              <figcaption class="bcls-caption--image">代理主機設定</figcaption>
+            </figure>
+          </li>
+          <li>選取「<strong>確定</strong>」以儲存變更並關閉對話方塊。</li>
+          <li>從功能表中選取<strong>代理主機 &gt; SSL 代理伺服器設定值</strong>。確定已選取<strong> [啟用 SSL 代理</strong> ] 選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="SSL 代理伺服器設定" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/ssl-proxy-settings.png"/>
+              <figcaption class="bcls-caption--image">SSL 代理伺服器設定</figcaption>
+            </figure>
+          </li>
+          <li>在「<strong>位置</strong>」區段中，選取「<strong>新增</strong>」按鈕。在「編<strong>輯位置</strong>」對話方塊中，導覽至「<strong>連接埠</strong>」欄位，然後輸入<strong> 443 </strong>。選取<strong> [確定] </strong>以儲存此變更。
+            <figure class="bcls-figure"><img class="bcls-image" alt="位置連接埠 443" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/port-443.png"/>
+              <figcaption class="bcls-caption--image">位置連接埠 443</figcaption>
+            </figure>
+          </li>
+          <li>選取「<strong>確定</strong>」以關閉「編<strong>輯位置</strong>」對話方塊。
+            <figure class="bcls-figure"><img class="bcls-image" alt="具有位置的 SSL 設定" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/ssl-settings-location.png"/>
+              <figcaption class="bcls-caption--image">具有位置的 SSL 設定</figcaption>
+            </figure>
+          </li>
+          <li>選取「<strong>確</strong>定」以結束「<strong> SSL 代理設定</strong>」對話方塊。</li>
+          <li>導航<strong>幫助&gt; SSL代理&gt;在移動設備或遠程瀏覽器上安裝Charles Root證書</strong>。
+            <figure class="bcls-figure"><img class="bcls-image" alt="安裝根憑證" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/01-root-certificate.png"/>
+              <figcaption class="bcls-caption--image">安裝根憑證</figcaption>
+            </figure>
+          </li>
+          <li>您應該會看到一則訊息，識別您將用來設定裝置的本機伺服器 IP 和連接埠號碼 (8888)。您還應該看到 URL 來下載並安裝證書。將這些檔案複製到電腦以供日後使用。
+            <figure class="bcls-figure"><img class="bcls-image" alt="憑證訊息" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/02-certificate-msg.png"/>
+              <figcaption class="bcls-caption--image">憑證訊息</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information language-editable">請注意，您將需要使Charles證書受信任。</aside>
+          </li>
+        </ol>
+      </div>
+      <div class="BCL-subsection">
+        <h3>在您的裝置上設定查爾斯</h3>
+        <p>在本節中，您將學習如何設置您的 iOS 和/或 Android 設備，以便在您的計算機上與查爾斯一起工作。</p>
+        <h4>設定您的 iOS 裝置</h4>
+        <ol>
+          <li>在您的裝置上，確定您已連線到與電腦相同的網路。您可以導航到<strong>設置&gt; Wifi</strong>並選擇網絡名稱以顯示高級選項。
+            <figure class="bcls-figure"><img class="bcls-image" alt="裝置網路" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/03-device-network.png"/>
+              <figcaption class="bcls-caption--image">裝置網路</figcaption>
+            </figure>
+          </li>
+          <li>在底部的HTTP部分中，選擇<strong>手冊</strong>模式。然後，新增伺服器 IP 和連接埠號碼 (8888) 您從查爾斯在上一個步驟中複製。
+            <figure class="bcls-figure"><img class="bcls-image" alt="無線網絡詳情" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/04-wifi-details.png"/>
+              <figcaption class="bcls-caption--image">無線網絡詳情</figcaption>
+            </figure>
+          </li>
+          <li>在您的設備上，打開瀏覽器並導航到<a href="//www.charlesproxy.com/getssl/">http://www.charlesproxy.com/getssl</a>。您將被重定向到設備設置，系統將提示您安裝<strong>Charles Proxy自定義根證書</strong>個人資料。選擇<strong>安裝</strong>按鈕可在您的設備上安裝Charles證書。
+            <figure class="bcls-figure"><img class="bcls-image" alt="安裝查爾斯憑證" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/06-charles-install.png"/>
+              <figcaption class="bcls-caption--image">安裝查爾斯憑證</figcaption>
+            </figure>
+          </li>
+          <li>請依照下列步驟安裝查爾斯憑證。完成後，選擇<strong>完成了</strong>。
+            <figure class="bcls-figure"><img class="bcls-image" alt="查爾斯設定檔安裝" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/09-profile-installed.png"/>
+              <figcaption class="bcls-caption--image">查爾斯設定檔安裝</figcaption>
+            </figure>
+          </li>
+          <li>接下來，您已準備好確保您的裝置信任 Charles 憑證。在您的設備上，導航至<strong>常規&gt;關於&gt;證書信任設置</strong>。在這裡你應該找到查爾斯代理證書。
+            <figure class="bcls-figure"><img class="bcls-image" alt="憑證信任設定" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/certificate-trust-settings.png"/>
+              <figcaption class="bcls-caption--image">憑證信任設定</figcaption>
+            </figure>
+          </li>
+          <li>啟用查爾斯憑證。請注意警告訊息。您可能想要在不使用查爾斯進行偵錯時停用此憑證。
+            <figure class="bcls-figure"><img class="bcls-image" alt="啟用信任憑證" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/enable-trust.png"/>
+              <figcaption class="bcls-caption--image">啟用信任憑證</figcaption>
+            </figure>
+          </li>
+          <!-- <li>On your device, return to the browser and open any web page. Charles will alert you about the connection attempt. You should allow this.
+    <figure class="bcls-figure"><img class="bcls-image" alt="Allow Charles connection" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/10-connection-alert.png" />
+    <figcaption class="bcls-caption--image">Allow Charles connection</figcaption>
+    </figure>
+    </li> -->
+          <li>現在，你將能夠看到在查爾斯發送和接收的任何數據。
+            <figure class="bcls-figure"><img class="bcls-image" alt="請參閱查爾斯資料" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/11-charles-data.png"/>
+              <figcaption class="bcls-caption--image">請參閱查爾斯資料</figcaption>
+            </figure>
+          </li>
+        </ol>
+        <h4>設定您的安卓裝置</h4>
+        <aside class="bcls-aside bcls-aside--information language-editable">這些步驟僅適用於運行 Android 2.3 及更高版本的設備。</aside>
+        <ol>
+          <li>在您的設備上，打開瀏覽器並導航到<a href="//www.charlesproxy.com/getssl/">//chls.pro/ssl</a>。</li>
+          <li>系統將提示您<strong>證書名稱</strong>對話。為證書指定名稱並設置<strong>用於</strong>到<strong>無線上網</strong>。選擇<strong>好</strong>安裝證書。
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="安裝查爾斯憑證" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-charles.png"/>
+              <figcaption class="bcls-caption--image">安裝查爾斯憑證</figcaption>
+            </figure>
+          </li>
+          <li>接下來，打開<strong>設置&gt; Wi-Fi</strong>菜單。您會在裝置上看到已連線的網路清單。選取您目前連線的無線網路。請記住，這個網路必須符合您在電腦上連線的網路。</li>
+          <li>這將打開一個包含三個選項的小對話框-編輯，查看或忘記。選取<strong>編輯</strong>。</li>
+          <li>在此對話框中，向下滾動到底部並啟用<strong>顯示高級選項</strong>領域。這將顯示代理和 IP 設置。
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="進階設定" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-charles.png"/>
+              <figcaption class="bcls-caption--image">進階設定</figcaption>
+            </figure>
+          </li>
+          <li>改變<strong>代理設定</strong>到<strong>手冊</strong>。</li>
+          <li>填寫<strong>代理主機名</strong>字段以及您計算機的IP地址和<strong>代理端口</strong>字段以匹配在Charles中設置的端口（默認情況下，端口設置為8888）。選取「儲存」。
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="設定 IP 位址" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/06-charles.png"/>
+              <figcaption class="bcls-caption--image">設定 IP 位址</figcaption>
+            </figure>
+          </li>
+          <li>在裝置的預設瀏覽器中，瀏覽至網站。您將能夠看到在查爾斯發送和接收的任何數據。
+            <figure class="bcls-figure"><img class="bcls-image" alt="請參閱資料傳輸" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/07-charles.png"/>
+              <figcaption class="bcls-caption--image">請參閱資料傳輸</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- div id="charles" --></article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 9 月 29 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

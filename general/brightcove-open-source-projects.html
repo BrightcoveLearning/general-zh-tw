@@ -1,0 +1,741 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>布萊特灣開源項目</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/general/">一般資訊</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">布萊特灣開源項目</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">首頁</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">一般資訊<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">布萊特灣產品概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">布萊特灣延續性概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">開放原始碼專案</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">長跑短跑影片</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">布萊特灣論壇群組和電子郵件列表</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">開發人員<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">了解 CORS </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">模塊設計模式</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">設定捲曲</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">使用</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">創建一個 JSON 網絡令牌（JWT）</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">使用港鐵 (我的追蹤) </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">使用 Wireshark 來追蹤網路流量</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">從奧亞拉遷移<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 客戶的遷移文件</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">遷移至布萊特灣分析 API </a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">移轉至視訊雲端：擷取配接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">擷取配接器：CSV 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">擷取配接器：與阿斯佩拉一起攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">擷取配接器：使用 FTPS 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">擷取配接器：使用 OIS 2.5 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">擷取配接器：使用後台 API 進行內嵌</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">擷取配接器：透過 MRSS 擷取遠端資產</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">擷取配接器：從託管的 MRSS 中擷取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot /視訊雲端CMS 連接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">備份與視訊雲端：視訊和播放清單欄位</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">擷取配接器：資訊清單檔案格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">擷取配接器：XML 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">擷取配接器：支援的內嵌格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">新增布萊特灣 DNS 伺服器以進行測試</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">布萊特灣 API 請求的身份驗證</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">現在趨勢報告參考</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">將 Oooyala 播放器用於視訊雲端內容</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">公用程式<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">基本 64 編碼工具</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">日期轉換器</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">字串編碼器</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">所有線上訓練課程</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">註冊參加講師指導訓練</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">訓練：視訊雲端簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">訓練：視訊雲端分析簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">訓練：視訊雲端基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">視頻雲端工作室培訓視頻</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">布萊特灣大學培訓課程</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">已知問題</a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<article class="bcls-article">
+  <h1>布萊特灣開源項目</h1>
+  <summary>以下是所有目前 Brightcove 技術開放原始碼專案的清單，按類別分類。</summary>
+  <aside class="bcls-aside bcls-aside--information">開源項目沒有被布萊特灣正式支持。</aside>
+  <p>歡迎來到布萊特灣開放原始碼您可以在這裡找到由 Brightcove 員工或布萊特灣社區成員建立的許多項目，以協助加速您的布萊特灣發展。</p>
+  <p>如果您有興趣為項目做出貢獻，請前往 Github 上的個別項目網站。如果您有想要在此處列出的項目，<a href="mailto:training@brightcove.com">聯繫我們</a>。</p>
+  <section class="bcls-section">
+    <h2 id="currentApis">目前的 API</h2>
+    <ol id="current_apis">
+      <li>
+        <p>API 要求疑難排解指令碼</p>
+        <p>疑難排解布賴特灣 API 的 HTTP 要求和回應。</p>
+        <p>https://github.com/BrightcoveOS/api-request-troubleshooting-script<a href="https://github.com/BrightcoveOS/api-request-troubleshooting-script"></a></p>
+      </li>
+      <li>
+        <p>布萊特灣上傳者</p>
+        <p>用於直接多部分上傳到 s3 的前端模塊，用於布萊特灣攝取的秘密醬汁。</p>
+        <p>https://github.com/BrightcoveOS/evaporate-brightcove<a href="https://github.com/BrightcoveOS/evaporate-brightcove"></a></p>
+      </li>
+      <li>
+        <p>布萊特灣播放 API 包裝</p>
+        <p>這是用於<a href="https://apis.support.brightcove.com/playback/">Brightcove播放API</a>特蕾莎·紐曼（Theresa Newman）撰寫。</p>
+        <p>https://github.com/BrightcoveOS/Brightcove-Playback-API-Wrapper<a href="https://github.com/BrightcoveOS/Brightcove-Playback-API-Wrapper"></a></p>
+      </li>
+      <li>
+        <p>用於布萊特灣動態攝取的 PHP 包裝</p>
+        <p>該項目為整合Brightcove提供了一個起點<span translate="No">Dynamic Ingest API</span>進入您的應用程序。它提供了簡單的方法，使用提取式內嵌或來源檔案上傳來新增和更新視訊和相關媒體。</p>
+        <p>https://github.com/BrightcoveOS/php-wrapper-dynamic-ingest<a href="https://github.com/BrightcoveOS/php-wrapper-dynamic-ingest"></a></p>
+      </li>
+      <li>
+        <p>API 外觀</p>
+        <p>這個謙虛的圖書館旨在成為布萊特灣的服務器 API 上的一個簡單的外觀。由於黑幫需要額外的功能，它將在這裡添加。</p>
+        <p>https://github.com/nwbb/node-brightcove<a href="https://github.com/nwbb/node-brightcove"></a></p>
+      </li>
+      <li>
+        <p>播放程式管理 API 用戶端</p>
+        <p>此模組可用於存取布萊特灣播放器管理 API。基礎 API 的文檔可以<a href="https://apis.support.brightcove.com/player-management/">在這裡</a>找到。</p>
+        <p><a href="https://github.com/BrightcoveLearning/Player-Management-Client">https://github.com/BrightcoveLearning/Player-Management-Client </a></p>
+      </li>
+      <li>
+        <p>使用 CSRP 的布萊特灣 API 示例</p>
+        <p>這個項目顯示了如何新的布萊特灣 API 可以與 C＃ 一起使用。</p>
+        <p>請注意，這將從桌面環境（測試過）工作，但由於 CORS，如果在 ASP.NET 頁面中使用，可能無法正常工作。如果您遇到此問題，我相信解決此問題的唯一方法是在所有用戶中使用Brightcove提供的PHP代理。<span translate="No">CMS API</span>示例頁面。</p>
+        <p>所有代碼都按原樣提供，純粹作為例子。使用它由您自己承擔風險。不提供任何形式、形狀或形狀的支撐。</p>
+        <p>https://github.com/mikelau13/BrightcoveAPI<a href="https://github.com/mikelau13/BrightcoveAPI"></a></p>
+      </li>
+      <li>
+        <p>播放程式管理 API 用戶端</p>
+        <p>此模組可用於存取布萊特灣播放器管理 API。基礎 API 的文檔可以<a href="https://apis.support.brightcove.com/player-management/">在這裡</a>找到。</p>
+        <p><a href="https://github.com/BrightcoveLearning/Player-Management-Client">https://github.com/BrightcoveLearning/Player-Management-Client </a></p>
+      </li>
+    </ol>
+  </section>
+  <section id="brightcovePlayer" class="bcls-section">
+    <h2>播放器和 SDK</h2>
+    <ol id="brightcove_player">
+      <li>
+        <p>Video.js 外掛程式架構產生器</p>
+        <p>這是一個自以為的約曼生成器的 video.js 插件。它基於 video.js 核心團隊的建議以及在 Brightcove 開發插件的工具和慣例。</p>
+        <p>https://github.com/videojs/generator-videojs-plugin<a href="https://github.com/videojs/generator-videojs-plugin"></a></p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="integration">系統整合</h2>
+    <ol id="cms_integrations">
+      <li>
+        <p>布萊特灣視頻連接</p>
+        <p>SharePoint 2013 的布萊特灣視頻連接允許發布商直接從 SharePoint 添加，瀏覽和管理視頻和視頻播放列表。它的播放器組件允許輕鬆地將 Brightcove 視頻雲資產直接集成到 SharePoint 頁面。</p>
+        <p>http://go.brightcove.com/bc-video-connect-sharepoint2013<a href="http://go.brightcove.com/bc-video-connect-sharepoint2013"></a></p>
+      </li>
+      <li>
+        <p>適用於 Drupal 的布萊特灣視頻連接</p>
+        <p>Brightcove 視頻雲是一個視頻託管和發布解決方案，用於在任何設備上向數字觀眾提供專業質量的視頻。它提供了高度可定制的播放器，高清流，與第三方 CDN 和 YouTube 同步。與 Drupal 的 Brightcove 視頻連接，您可以有效地添加和管理您的 Drupal 支持的網站上的視頻內容。</p>
+        <p>https://www.drupal.org/project/brightcove<a href="https://www.drupal.org/project/brightcove"></a></p>
+      </li>
+      <li>
+        <p>白海灣視頻連接</p>
+        <p>您是否正在尋找在 WordPress 中原生處理您的 Brightcove 影片和播放清單資料庫？有了這個插件, 由 10up.com 開發, 你有權處理多個帳戶和視頻庫, 上傳視頻並將它們添加到播放列表, 渲染短碼與您的視頻和所有從 WordPress 管理界面.</p>
+        <p>https://wordpress.org/plugins/brightcove-video-connect/<a href="https://wordpress.org/plugins/brightcove-video-connect/"></a></p>
+      </li>
+      <li>
+        <p>連接器</p>
+        <p>提供多個視訊雲端帳戶之間的整合。</p>
+        <p>https://github.com/brightcove/sharepoint-connector<a href="https://github.com/brightcove/sharepoint-connector"></a></p>
+      </li>
+      <li>
+        <p>適用於 Adobe 體驗管理員的布萊特灣視訊連線</p>
+        <p>適用於 Adobe 體驗管理員 (AEM) 的布萊特灣視訊連線是整合布萊特灣視訊雲端和 AEM 之間工作流程的最簡單方式。使用 Brightcove 視訊連線，AEM 使用者可以直接從 AEM 使用者介面中新增、瀏覽和管理視訊。</p>
+        <p>http://go.brightcove.com/bc-video-connect-aem<a href="http://go.brightcove.com/bc-video-connect-aem"></a></p>
+      </li>
+      <li>
+        <p>CQ5 元件</p>
+        <p>CQ5 元件整合了布萊特灣</p>
+        <p><strong>技術：</strong>CQ5</p>
+        <p>https://www.github.com/coresecure/Adobe-CQ5-Brightcove-Connector<a href="https://www.github.com/coresecure/Adobe-CQ5-Brightcove-Connector"></a></p>
+      </li>
+      <li>
+        <p>推銷鏟車</p>
+        <p>Salesforce 提供大量 API，可簡化從資料存放區到銷售人員的大量資料同步。該項目提供了一個寶石在紅寶石應用程序中使用 Salesforce 批量 API。</p>
+        <p><strong>技術：</strong>銷售員，紅寶石</p>
+        <p>https://www.github.com/brightcove/salesforklift<a href="https://www.github.com/brightcove/salesforklift"></a></p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="3rdPartyAnalytics">分析</h2>
+    <ol id="analytics">
+      <li>
+        <p>Adobe Analytics</p>
+        <p>您可以使用播放器模組輕鬆設定 Adobe Analytics 外掛程式。有關信息，請參見<a href="https://studio.support.brightcove.com/players/configuring-adobe-analytics-event-tracking.html">配置Adobe Analytics事件跟踪</a>。</p>
+      </li>
+      <li>
+        <p>Google Analytics</p>
+        <p>谷歌分析插件可以很容易地使用球員模塊進行配置。有關信息，請參見<a href="https://studio.support.brightcove.com/players/configuring-google-analytics-event-tracking.html">配置Google Analytics（分析）事件跟踪</a>。</p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="miscellaneous">雜</h2>
+    <p>這些項目不適合任何其他類別。</p>
+    <ol id="misc">
+      <li>
+        <p>Perl 共享資源</p>
+        <p>該項目提供了通用的類和實用程序在其他 Perl 項目中使用。這可能包括第三方圖書館以及 Brightcove 開放原始碼庫。</p>
+        <p><strong>技術：</strong>Perl</p>
+        <p>https://www.github.com/BrightcoveOS/Perl-Commons<a href="https://www.github.com/BrightcoveOS/Perl-Commons"></a></p>
+      </li>
+      <li>
+        <p>度量石墨泡菜</p>
+        <p>科達海爾的擴展</p>
+        <p><strong>技術：</strong>石墨, 爪哇</p>
+        <p>https://www.github.com/BrightcoveOS/metrics-graphite-pickle<a href="https://www.github.com/BrightcoveOS/metrics-graphite-pickle"></a></p>
+      </li>
+      <li>
+        <p>LG 範例應用程式</p>
+        <p>這是一個 LG 視頻應用程序，顯示來自 Brightcove 帳戶的幾個播放列表。該應用程序的設計非常簡單，並允許客戶根據他們想要的功能進行自定義來更改 UI 或添加/刪除功能。</p>
+        <p><strong>技術：</strong>LG, 電視</p>
+        <p>https://www.github.com/BrightcoveOS/LG-Sample-App<a href="https://www.github.com/BrightcoveOS/LG-Sample-App"></a></p>
+      </li>
+      <li>
+        <p>Roku 範例應用程式</p>
+        <p>這個範本提供了一個快速的開始，讓您的 Brightcove 內容發佈在 Roku 上。若要開始使用此應用程式發行，您需要下列項目：</p>
+        <p><strong>技術：</strong>六，電視</p>
+        <p>https://www.github.com/BrightcoveOS/Roku-Sample-App<a href="https://www.github.com/BrightcoveOS/Roku-Sample-App"></a></p>
+      </li>
+      <li>
+        <p>Java 共享資源</p>
+        <p>該項目提供了在其他 Java 項目中使用的通用類和實用程序。這可能包括第三方圖書館以及 Brightcove 開放原始碼庫。</p>
+        <p><strong>技術：</strong>爪哇</p>
+        <p>https://www.github.com/BrightcoveOS/Java-Commons<a href="https://www.github.com/BrightcoveOS/Java-Commons"></a></p>
+      </li>
+      <li>
+        <p>鑽石</p>
+        <p>鑽石是一個蟒蛇守護進程，收集系統指標並將它們發布到石墨。它能夠收集 CPU，內存，網絡，I/O，負載和磁盤度量。此外，它還提供 API，用於實作自訂收集器，以便從幾乎任何來源收集度量。</p>
+        <p><strong>技術：</strong>石墨、蟒蛇</p>
+        <p><a href="https://github.com/python-diamond/Diamond">https://github.com/python-diamond/鑽石</a></p>
+      </li>
+    </ol>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 9 月 28 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

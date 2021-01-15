@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="407px" height="533px" viewBox="0 0 407 533" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>simulated-live-logic</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.000000, 67.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0.5" y="0.5" width="343" height="36"></rect>
+            <text id="Set-arbitrary-time-i" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="98.4716797" y="16">Set arbitrary time in past as </tspan>
+                <tspan x="143.811523" y="30">base point </tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 129.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0.5" y="0.5" width="343" height="36"></rect>
+            <text id="Get-time-difference" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="83.890625" y="16">Get time difference between now </tspan>
+                <tspan x="132.133789" y="30">and base point </tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 191.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0.5" y="0.5" width="343" height="36"></rect>
+            <text id="Get-playist-duration" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="111.801758" y="16">Get playist duration by</tspan>
+                <tspan x="104.799805" y="30">summing video durations</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(-32.000000, 254.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="31.5" y="0.5" width="344" height="36"></rect>
+            <text id="Get-current-playlist" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="122.629883" y="16">Get current playlist position as</tspan>
+                <tspan x="81.7138672" y="30">remainder of time difference / playlist duration</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(-32.000000, 316.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="31.5" y="0.5" width="344" height="36"></rect>
+            <text id="Find-the-video-that" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="101.272461" y="16">Find the video that the playlist position</tspan>
+                <tspan x="185.993164" y="30">falls in</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(-31.000000, 378.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="31.5" y="0.5" width="344" height="36"></rect>
+            <text id="Get-the-video-positi" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="84.9394531" y="16">Get the video position by subtracting its start</tspan>
+                <tspan x="63.9248047" y="30">point in the playlist duration from the current position</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(-32.000000, 440.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="31.5" y="0.5" width="344" height="36"></rect>
+            <text id="Load-the-video-and-s" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="119.269531" y="16">Load the video and seek to that</tspan>
+                <tspan x="182.319336" y="30">position</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(-31.000000, 502.000000)">
+            <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="31.5" y="0.5" width="344" height="36"></rect>
+            <text id="Start-endess-playbac" font-family="Helvetica" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="190.329102" y="16">Start</tspan>
+                <tspan x="158.304688" y="30">endess playback</tspan>
+            </text>
+        </g>
+        <path id="Line" d="M172,104 L172,121 L176,121 L171.5,130 L167,121 L171,121 L171,104 L172,104 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M172.5,165.5 L172.5,182.5 L176.5,182.5 L172,191.5 L167.5,182.5 L171.5,182.5 L171.5,165.5 L172.5,165.5 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M171.5,227.5 L171.5,244.5 L175.5,244.5 L171,253.5 L166.5,244.5 L170.5,244.5 L170.5,227.5 L171.5,227.5 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M172.5,290.5 L172.5,307.5 L176.5,307.5 L172,316.5 L167.5,307.5 L171.5,307.5 L171.5,290.5 L172.5,290.5 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M172.5,352.5 L172.5,369.5 L176.5,369.5 L172,378.5 L167.5,369.5 L171.5,369.5 L171.5,352.5 L172.5,352.5 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M172.5,414.5 L172.5,431.5 L176.5,431.5 L172,440.5 L167.5,431.5 L171.5,431.5 L171.5,414.5 L172.5,414.5 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line" d="M171.5,476.5 L171.5,493.5 L175.5,493.5 L171,502.5 L166.5,493.5 L170.5,493.5 L170.5,476.5 L171.5,476.5 Z" fill="#979797" fill-rule="nonzero"></path>
+    </g>
+</svg>
