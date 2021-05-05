@@ -1,0 +1,1470 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在本主題中，您將學習如何建立 JSON 網頁權杖 (JWT)，該權杖可在與布萊特灣播放 API 進行通訊時使用。">
+  
+  <title>創建一個 JSON 網絡令牌（JWT）</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+Brightcove 
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/developer/">開發人員</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">創建一個 JSON 網絡令牌（JWT）</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+					<option value="">其他布萊特灣文件</option>
+					
+						
+							<option value="https://support.brightcove.com">文件首頁</option>
+						
+					
+						
+							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+						
+					
+						
+							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+						
+					
+						
+							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+						
+					
+						
+							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+						
+					
+						
+							<option value="https://live.support.brightcove.com">Brightcove Live</option>
+						
+					
+						
+							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+						
+					
+						
+							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
+						
+					
+						
+							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+						
+					
+						
+							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+						
+					
+						
+							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+						
+					
+						
+							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+						
+					
+						
+							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+						
+					
+						
+							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+						
+					
+						
+							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
+						
+					
+				</select>
+						<nav class="sidenav" id="side_nav">
+
+          
+            
+            <h5><a href="/index.html">首頁</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">一般資訊<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">布萊特灣產品概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">布萊特灣延續性概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">開放原始碼專案</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">長跑短跑影片</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">布萊特灣論壇群組和電子郵件列表</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">開發人員<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">了解 CORS </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">模塊設計模式</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">設定捲曲</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">使用</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">創建一個 JSON 網絡令牌（JWT）</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">使用港鐵 (我的追蹤) </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">使用 Wireshark 來追蹤網路流量</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">從奧亞拉遷移<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 客戶的遷移文件</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">遷移至布萊特灣分析 API </a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">移轉至視訊雲端：擷取配接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">擷取配接器：CSV 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">擷取配接器：與阿斯佩拉一起攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">擷取配接器：使用 FTPS 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">擷取配接器：使用 OIS 2.5 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">擷取配接器：使用後台 API 進行內嵌</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">擷取配接器：透過 MRSS 擷取遠端資產</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">擷取配接器：從託管的 MRSS 中擷取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot /視訊雲端CMS 連接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">備份與視訊雲端：視訊和播放清單欄位</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">擷取配接器：資訊清單檔案格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">擷取配接器：XML 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">擷取配接器：支援的內嵌格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">新增布萊特灣 DNS 伺服器以進行測試</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">布萊特灣 API 請求的身份驗證</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">現在趨勢報告參考</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">將 Oooyala 播放器用於視訊雲端內容</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">公用程式<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">基本 64 編碼工具</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">日期轉換器</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">字串編碼器</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">所有線上訓練課程</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">註冊參加講師指導訓練</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">訓練：視訊雲端簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">訓練：視訊雲端分析簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">訓練：視訊雲端基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">視頻雲端工作室培訓視頻</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">布萊特灣大學培訓課程</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">已知問題</a></li>
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<h1>創建一個 JSON 網絡令牌（JWT）</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將學習如何建立與 Brightcove 播放 API 進行通訊時可使用的<span translate="No">JSON Web Token</span> (JWT)。</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">簡介</h2>
+
+    <p>若要在存取影片庫時增加額外層級的保護，或為您的內容套用使用者層級限制，您可以將呼叫<span translate="No">JSON Web Token</span> (JWT) 傳遞給 Brightcove 播放 API。若要建立權杖，請依照下列步驟執行：</p>
+    <ol class="bcls-tasklist">
+      <li><a href="#Generate_public_private_key_pair">產生公開私密金鑰組</a></li>
+      <li>
+        <a href="#Register_public_key">向布萊特灣註冊公開金鑰</a>
+      </li>
+      <li>
+        <a href="#Create_a_JSON_Web_Token">建立<span translate="No">JSON Web Token</span></a>
+      </li>
+      <li>
+        <a href="#Test_playback">測試播放</a>
+      </li>
+    </ol>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Generate_public_private_key_pair">產生公開私密金鑰組</h2>
+
+    <p>發行者將產生公開私密金鑰組，並將公開金鑰提供給 Brightcove。私密金鑰是由發行者用來簽署令牌，並且不會與 Brightcove 共用。</p>
+
+    <p>
+      有很多方法可以產生公開私密金鑰組。以下是一些範例：
+    </p>
+    <h3>
+      bash 腳本示例：
+    </h3>
+    <aside class="bcls-aside bcls-aside--information language-editable">請注意，下面的腳本使用<strong> jq </strong>包來解析 JSON。如果您沒有安裝 jq，請參閱安<a href="https://github.com/stedolan/jq/wiki/Installation">裝說明</a>。</aside>
+    <p>
+      產生金鑰配對的範例指令碼：
+    </p>
+    <pre class="line-numbers"><code class="language-bash" translate="No">#!/bin/bash
+set -euo pipefail
+
+NAME=${1:-}
+test -z "${NAME:-}" &amp;&amp; NAME="brightcove-playback-auth-key-$(date +%s)"
+mkdir "$NAME"
+
+PRIVATE_PEM="./$NAME/private.pem"
+PUBLIC_PEM="./$NAME/public.pem"
+PUBLIC_TXT="./$NAME/public_key.txt"
+
+ssh-keygen -t rsa -b 2048 -m PEM -f "$PRIVATE_PEM" -q -N ""
+openssl rsa -in "$PRIVATE_PEM" -pubout -outform PEM -out "$PUBLIC_PEM" 2&gt;/dev/null
+openssl rsa -in "$PRIVATE_PEM" -pubout -outform DER | base64 &gt; "$PUBLIC_TXT"
+
+rm "$PRIVATE_PEM".pub
+
+echo "Public key to saved in $PUBLIC_TXT"
+</code></pre>
+    <p>
+      執行指令碼：
+    </p>
+    <pre><code class="language-bash" translate="No">$ bash keygen.sh
+</code></pre>
+
+    <details id="Example_using_Go">
+      <summary>使用範例<span translate="No">Go</span></summary>
+      <p>
+        使用<span translate="No">Go</span>編程語言生成密鑰對的示例：
+      </p>
+      <aside class="bcls-aside bcls-aside--tip">如果你是新來的<span translate="No">Go</span>，請參閱<a href="https://golang.org/"><span translate="No">Go</span>編程語言</a>主頁。</aside>
+      <pre class="line-numbers"><code class="language-bash" translate="No">package main
+  
+  import (
+    "crypto/rand"
+    "crypto/rsa"
+    "crypto/x509"
+    "encoding/base64"
+    "encoding/pem"
+    "flag"
+    "fmt"
+    "io/ioutil"
+    "os"
+    "path"
+    "strconv"
+    "time"
+  )
+  
+  func main() {
+    var out string
+  
+    flag.StringVar(&amp;out, "output-dir", "", "Output directory to write files into")
+    flag.Parse()
+  
+    if out == "" {
+      out = "rsa-key_" + strconv.FormatInt(time.Now().Unix(), 10)
+    }
+  
+    if err := os.MkdirAll(out, os.ModePerm); err != nil {
+      panic(err.Error())
+    }
+  
+    priv, err := rsa.GenerateKey(rand.Reader, 2048)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    privBytes := x509.MarshalPKCS1PrivateKey(priv)
+  
+    pubBytes, err := x509.MarshalPKIXPublicKey(priv.Public())
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    privOut, err := os.OpenFile(path.Join(out, "private.pem"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    if err := pem.Encode(privOut, &amp;pem.Block{Type: "RSA PRIVATE KEY", Bytes: privBytes}); err != nil {
+      panic(err.Error())
+    }
+  
+    pubOut, err := os.OpenFile(path.Join(out, "public.pem"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    if err := pem.Encode(pubOut, &amp;pem.Block{Type: "PUBLIC KEY", Bytes: pubBytes}); err != nil {
+      panic(err.Error())
+    }
+  
+    var pubEnc = base64.StdEncoding.EncodeToString(pubBytes)
+  
+    var pubEncOut = path.Join(out, "public_key.txt")
+    if err := ioutil.WriteFile(pubEncOut, []byte(pubEnc+"\n"), 0600); err != nil {
+      panic(err.Error())
+    }
+  
+    fmt.Println("Public key saved in " + pubEncOut)
+  }
+  </code></pre>
+    </details>
+    <details id="Example_using_node_js">
+      <summary>使用 node.js 的範例</summary>
+      <p>
+        使用 node.js 生成密鑰對的示例：
+      </p>
+      <aside class="bcls-aside bcls-aside--tip">此指令碼範例需要節點版本 11 或更新版本。</aside>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">var crypto = require("crypto");
+  var fs = require("fs");
+  
+  var now = Math.floor(new Date() / 1000);
+  var dir = "rsa-key_" + now;
+  fs.mkdirSync(dir);
+  
+  crypto.generateKeyPair(
+    "rsa",
+    {modulusLength: 2048},
+    (err, publicKey, privateKey) =&gt; {
+      fs.writeFile(
+        dir + "/public.pem",
+        publicKey.export({ type: "spki", format: "pem" }),
+        err =&gt; {}
+      );
+      fs.writeFile(
+        dir + "/public_key.txt",
+        publicKey.export({ type: "spki", format: "der" }).toString("base64") +
+          "\n",
+        err =&gt; {}
+      );
+      fs.writeFile(
+        dir + "/private.pem",
+        privateKey.export({ type: "pkcs1", format: "pem" }),
+        err =&gt; {}
+      );
+    }
+  );
+  
+  console.log("Public key saved in " + dir + "/public_key.txt");</code></pre>
+    </details>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Register_public_key">註冊公開金鑰</h2>
+
+    <p>您將使用密鑰 API 來註冊您的公鑰與布萊特灣。</p>
+    <h3>關鍵 API</h3>
+    <p>
+      密鑰 API 用於管理您的公鑰與布萊特灣。
+    </p>
+    <aside class="bcls-aside bcls-aside--tip">
+      <p>
+        在管理DRM時，您還可以使用<a href="https://apis.support.brightcove.com/playback-authorization/guides/additional-apis-for-pas.html">播放授權服務的其他API</a>。
+      </p>
+    </aside>
+
+    <h3>基本網址</h3>
+    <p>
+      API 的基本網址是：
+    </p>
+    <pre><code class="language-http" translate="No">https://playback-auth.api.brightcove.com</code></pre>
+
+    <h3>帳號路徑</h3>
+    <p>
+      在所有情況下，我們都會針對特定的視訊雲端帳戶提出要求。因此，您將始終將術語帳戶後面跟著您的帳戶 ID 添加到基本 URL 中：
+    </p>
+    <pre><code class="language-http" translate="No">https://playback-auth.api.brightcove.com/v1/accounts/{accountID}</code></pre>
+
+    <h3>授權</h3>
+    <p>
+      請求的訪問令牌是必需的，並且必須出現在授權頭።
+    </p>
+    <pre><code class="language-http" translate="No">Authorization: Bearer {access_token}</code></pre>
+    <p>
+      訪問令牌是一個臨時的 OAuth2 訪問令牌，必須從布萊特灣 OAuth 服務獲得。如需有關如何取得用戶端認證並使用它們來擷取存取權杖的詳細資訊，請參閱<a href="https://support.brightcove.com/overview-oauth-api-v4"> Brightcove OAuth 概觀</a>。
+    </p>
+
+    <h3>權限</h3>
+    <p>
+      對金鑰 API 的要求必須從具有下列權限的<a href="https://support.brightcove.com/oauth-api">用戶端認證</a>提出：
+    </p>
+    <ul>
+      <li>
+        <code translate="No">video-cloud/playback-auth/key/read</code>
+      </li>
+      <li>
+        <code translate="No">video-cloud/playback-auth/key/write</code>
+      </li>
+    </ul>
+
+    <h3>管理金鑰</h3>
+    <p>
+      關鍵 API 支援下列要求：
+    </p>
+    <aside class="bcls-aside bcls-aside--information">
+      <p>
+        注意事項：
+      </p>
+      <ul>
+        <li>
+          您無法編輯現有的金鑰，但您可以刪除並建立新的金鑰。
+        </li>
+        <li>
+          一次最多可以註冊 3 個金鑰，並且可以刪除金鑰，以支援按鍵旋轉。在實踐中，最好只有 1 個密鑰。
+        </li>
+      </ul>
+    </aside>
+
+    <h4>註冊一個新的金鑰：</h4>
+    <p>
+      將您的公鑰的值放在 API 請求主體中。你可以在<strong> public_key.txt </strong>文件中找到密鑰。
+    </p>
+    <h5>請求</h5>
+    <pre class="line-numbers"><code class="language-http" translate="No">POST /v1/accounts/{accountID}/keys
+    Content-Type: application/json
+    Body: {"value": "MFkwEwYHKoZIzj0CAQYIKoZIzj...MyeQviqploA=="}
+</code></pre>
+    <h5 id="Using_Curl" class="bcls-expander-head">使用捲曲</h5>
+    <div class="bcls-expander-content">
+      <pre class="line-numbers"><code class="language-curl">捲曲-X 帖子\
+  -H「內容類型：應用程序/JSON」\
+  -H「授權：承載人 {存取記號}」\
+  -d '{"值」：「{您的公共關鍵值}"}'\
+https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
+</code></pre>
+    </div>
+    <h5>響應</h5>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "id": "{your_public_key_id}",
+  "type": "public",
+  "algorithm": "rsa",
+  "value": "{your_public_key_value}",
+  "createdAt": "2020-01-03T20:30:36.488Z"
+}</code></pre>
+
+    <h4>列出鍵：</h4>
+    <p>
+      取得帳戶中的公開金鑰清單。
+    </p>
+    <pre><code class="language-http" translate="No">GET /v1/accounts/{accountID}/keys</code></pre>
+
+    <h4>取得一個金鑰：</h4>
+    <p>
+      取得帳戶中公開金鑰的詳細資料。
+    </p>
+    <pre><code class="language-http" translate="No">GET /v1/accounts/{accountID}/keys/{key_Id}</code></pre>
+
+    <h4>刪除一個鍵：</h4>
+    <p>
+      刪除帳戶中的公開金鑰。
+    </p>
+    <pre><code class="language-http" translate="No">DELETE /v1/accounts/{accountID}/keys/{key_Id}</code></pre>
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_JSON_Web_Token">建立<span translate="No">JSON Web Token</span></h2>
+
+    <p>發行者創建一個<a href="https://jwt.io/introduction/" translate="No">JSON Web Token</a>（JWT）。使用 SHA-256 雜湊演算法 (在 JWT 規格中識別為 " <a href="https://ldapwiki.com/wiki/RS256"> RS256 </a>」) 使用 RSA 演算法簽署該令牌不會支援其他 JWT 演算法。</p>
+    <p>
+      <a href="https://auth0.com/docs/tokens/jwt-claims" translate="No">JSON Web Token claims</a>將使用標準的一部分，以及 Brightcove 定義的一些私人索賠。您將創建一個用您的私鑰<span translate="No">JSON Web Token</span>簽名。
+    </p>
+    <section class="bcls-section">
+      <h2 id="Claims_for_Static_URL_Delivery">靜態 URL 傳遞的宣告</h2>
+      <p>
+        以下聲明可以與布萊特灣的靜態 URL 傳遞一起使用。
+      </p>
+      <aside class="bcls-aside bcls-aside--tip">請注意，靜態 URL 傳遞不需要任何宣告。</aside>
+
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>欄位</th>
+            <th>類型</th>
+            <th>必填</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">accid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>擁有播放內容的帳號 ID</td>
+          </tr>
+          <tr>
+            <td><code translate="No">drules</code></td>
+            <td>串[]</td>
+            <td></td>
+            <td>要套用的傳遞規則動作識別碼清單，請參閱<a href="/delivery-rules/implementing-delivery-rules.html">實行傳送規</a>則以取得詳細資訊。如果 config_id 查詢參數也被設置，它將被忽略，因為此聲明會覆蓋它。</td>
+          </tr>
+          <tr>
+            <td><code translate="No">exp</code></td>
+            <td>整數</td>
+            <td></td>
+            <td>這個令牌的時間將不再有效，以秒為單位，自紀元以來。必須不超過 30 天<code translate="No">iat</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">iat</code></td>
+            <td>整數</td>
+            <td></td>
+            <td>這個令牌發出的時間，以秒為單位，自紀元</td>
+          </tr>
+          <tr>
+            <td><code translate="No">conid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>如果存在，此權杖只會授權擷取特定 Video Cloud 視訊 ID 的授權。<br/><br/>必須是有效的影片 ID。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">pro</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>在單一視訊可用多個情況下，指定保護類型。<br/><br/>值：
+              <ul>
+                <li>
+                  「」(預設為清晰內容)
+                </li>
+                <li>
+                  「第 128」
+                </li>
+                <li>
+                  「威德維恩」
+                </li>
+                <li>
+                  「播放就緒」
+                </li>
+                <li>
+                  「公平遊戲」
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">vod</code></td>
+            <td>物件</td>
+            <td></td>
+            <td>包含視訊隨選視訊的特定組態選項。</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ssai</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>您的伺服器端廣告插入 (SSAI) 組態識別碼。擷取 HLS 或破折號 VMAP <strong>需要</strong>此宣告。</td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <p>
+        以下是您可能使用的<span translate="No">JSON Web Token</span>（JWT）聲明的示例：
+      </p>
+      <pre class="line-numbers"><code class="language-json" translate="No">{
+// account id: JWT is only valid for this accounts
+"accid":"4590388311111",
+// drules: list of delivery rule IDs to be applied
+"drules": ["0758da1f-e913-4f30-a587-181db8b1e4eb"]
+// expires: timestamp when JWT expires
+"exp":1577989732,
+// issued at: timestamp when the JWT was created
+"iat":1575484132,
+// content id: JWT is only valid for video id or reference id
+"conid":"5805807122222",
+// protection: specify a protection type in the case where multiple are available for a single video
+"pro":"aes128",
+// VOD specific configuration options
+"vod":{
+// SSAI configuration to apply
+"ssai":"efcc566-b44b-5a77-a0e2-d33333333333"
+}
+}</code></pre>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Claims_for_Playback_Authorization">播放授權聲明</h2>
+      <p>
+        以下權利要求可以與<a href="https://apis.support.brightcove.com/playback-authorization/getting-started/overview-playback-authorization-service.html">Brightcove的播放授權服務</a>。
+      </p>
+
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>欄位</th>
+            <th>類型</th>
+            <th>必填</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">accid</code></td>
+            <td>字串</td>
+            <td>是</td>
+            <td>擁有播放內容的帳號 ID</td>
+          </tr>
+          <tr>
+            <td><code translate="No">exp</code></td>
+            <td>整數</td>
+            <td>是</td>
+            <td>這個令牌的時間將不再有效，以秒為單位，自紀元以來。必須不超過 30 天<code translate="No">iat</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">iat</code></td>
+            <td>整數</td>
+            <td>是</td>
+            <td>這個令牌發出的時間，以秒為單位，自紀元</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ua</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>如果存在，此令牌將僅對來自此用戶代理的請求有效。<br/><br/>此欄位未驗證。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">conid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>如果存在，此權杖只會授權擷取特定 Video Cloud 視訊 ID 的授權。<br/><br/>必須是有效的影片 ID。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">maxip</code></td>
+            <td>整數</td>
+            <td></td>
+            <td>如果存在，這個令牌將只能被這許多不同的 IP 地址使用。(DRM 與 AES-128) 工作階段追蹤<br/><br/>所需。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">maxu</code></td>
+            <td>整數</td>
+            <td></td>
+            <td>
+              如果存在，此 Token 僅適用於這許多許可證請求。(電子資料管理系統及 AES-128) <br/><br/>
+              <ul>
+                <li>
+                  對於 HLSE，播放器在播放視訊時會提出多個要求，通常每個節目一次。<code translate="No">maxu</code>必須設定足夠高，才能解決這些額外的要求。
+                </li>
+                <li>
+                  對於 DRM，每次播放會提出一個授權要求
+                </li>
+              </ul>
+              工作階段追蹤必要項目。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Claims_for_Playback_Rights">播放權聲明</h2>
+      <p>
+        以下權利要求可以與<a href="https://apis.support.brightcove.com/playback-rights/getting-started/overview-epa.html">Brightcove的播放權限管理服務</a>。
+      </p>
+      <aside class="bcls-aside bcls-aside--information">在 DRM 中使用播放權限時，您不能使用 AES-128。</aside>
+
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>欄位</th>
+            <th>類型</th>
+            <th>必填</th>
+            <th>並發必需</th>
+            <th>僅限 DRM</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">accid</code></td>
+            <td>字串</td>
+            <td>是</td>
+            <td></td>
+            <td></td>
+            <td>擁有播放內容的帳號 ID</td>
+          </tr>
+          <tr>
+            <td><code translate="No">exp</code></td>
+            <td>整數</td>
+            <td>是</td>
+            <td></td>
+            <td></td>
+            <td>這個令牌的時間將不再有效，以秒為單位，自紀元以來。必須不超過 30 天<code translate="No">iat</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">iat</code></td>
+            <td>整數</td>
+            <td>是</td>
+            <td></td>
+            <td></td>
+            <td>這個令牌發出的時間，以秒為單位，自紀元</td>
+          </tr>
+          <tr>
+            <td><code translate="No">pkid</code></td>
+            <td>字串</td>
+            <td>是</td>
+            <td></td>
+            <td></td>
+            <td>用於驗證此令牌的公鑰 ID。<br/><br/>向Brightcove的播放授權服務註冊的公共密鑰必須使用RSA密鑰格式。先前創建的EC密鑰將不起作用。<br/><br/>此欄位未驗證。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">nbf</code></td>
+            <td>整數</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>這個令牌開始有效的時間，以秒為單位，自紀元</td>
+          </tr>
+          <tr>
+            <td><code translate="No">prid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>A <code translate="No">playback_rights_id</code> .用於覆寫此視訊目錄中的 ID 設定<br/><br/>此欄位未驗證。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">tags</code></td>
+            <td>陣列 &lt; 字串 &gt;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>如果存在，則此令牌僅適用於授權播放列出的標籤。</td>
+          </tr>
+          <tr>
+            <td><code translate="No">offers</code></td>
+            <td>陣列 &lt; 字串 &gt;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>如果存在，則此令牌僅對授權播放的所列報價有效。</td>
+          </tr>
+          <tr>
+            <td><code translate="No">vids</code></td>
+            <td>陣列 &lt; 字串 &gt;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>如果存在，這個令牌將只授權獲取一組視頻 ID 的許可證。</td>
+          </tr>
+          <tr>
+            <td><code translate="No">uid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td>是</td>
+            <td>是</td>
+            <td>最終檢視器的使用者 ID。該字段用於關聯多個會話以實施流並發。<br/><br/>裝置註冊需要。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">sid</code></td>
+            <td>字串</td>
+            <td></td>
+            <td></td>
+            <td>是</td>
+            <td>指定當前流的會話ID允許對定義會話的內容進行自定義控制。<br/><br/>如果未指定，則默認值為User-Agent，IP地址和視頻ID的組合。<br/><br/>階段作業並行的必要項目。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">cexp</code></td>
+            <td>字串</td>
+            <td></td>
+            <td></td>
+            <td>是</td>
+            <td>會話的並發到期時間-默認為內容持續時間的2倍。<br/><br/>這會定義工作階段有效的時間，之後結束檢視器必須開始新的工作階段才能繼續播放。例：<code translate="No">2h</code>要么<code translate="No">42m</code><br/><br/>會話並發所需。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">climit</code></td>
+            <td>整數</td>
+            <td></td>
+            <td>是</td>
+            <td>是</td>
+            <td>包括此字段後，它將啟用流並發檢查以及許可證續訂請求。此值表示允許並行觀察者的數目。<br/><br/>階段作業並行的必要項目。
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">dlimit</code></td>
+            <td>整數</td>
+            <td></td>
+            <td></td>
+            <td>是</td>
+            <td>包含此欄位時，它會控制可以與指定的使用者 ( <code translate="No">uid</code> ) 關聯的裝置數目。值必須是 &gt; <code translate="No">0</code>。<br/><br/>如果在稍後的要求中捨棄該<code translate="No">dlimit</code>值，先前允許的裝置將繼續運作。<br/><br/>範例：如果值設定為<code translate="No">3</code>，則使用者可以在裝置 A、B 和 C 上播放 (所有將被允許)。嘗試在裝置 D 上播放將被拒絕。<br/><br/>如果將值更改為<code translate="No">1</code>，用戶仍然可以在A，B和C的所有3種設備上播放，除非通過使用以下命令管理設備來手動撤消設備<a href="https://apis.support.brightcove.com/playback-rights/references/devices-api/reference.htmlc/#operation/GetDevices">播放權限API</a>。<br/><br/>裝置註冊需要。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Generate_a_token">產生權杖</h2>
+      <p>
+        庫通常可用於生成 JWT 令牌。有關詳細信息，請參閱<a href="https://jwt.io/" translate="No">JSON Web Tokens</a>網站。
+      </p>
+      <h4>
+        bash 腳本示例：
+      </h4>
+      <p>
+        生成 JWT 令牌的示例腳本：
+      </p>
+      <pre class="line-numbers"><code class="language-bash" translate="No">#! /usr/bin/env bash
+# Static header fields.
+HEADER='{
+	"type": "JWT",
+	"alg": "RS256"
+}'
+
+payload='{
+	"pkid": "{your_public_key_id}",
+	"accid": "{your_account_id}"
+}'
+
+# Use jq to set the dynamic `iat` and `exp`
+# fields on the payload using the current time.
+# `iat` is set to now, and `exp` is now + 1 second.
+PAYLOAD=$(
+	echo "${payload}" | jq --arg time_str "$(date +%s)" \
+	'
+	($time_str | tonumber) as $time_num
+	| .iat=$time_num
+	| .exp=($time_num + 60 * 60)
+	'
+)
+
+function b64enc() { openssl enc -base64 -A | tr '+/' '-_' | tr -d '='; }
+
+function rs_sign() { openssl dgst -binary -sha256 -sign playback-auth-keys/private.pem ; }
+
+JWT_HDR_B64="$(echo -n "$HEADER" | b64enc)"
+JWT_PAY_B64="$(echo -n "$PAYLOAD" | b64enc)"
+UNSIGNED_JWT="$JWT_HDR_B64.$JWT_PAY_B64"
+SIGNATURE=$(echo -n "$UNSIGNED_JWT" | rs_sign | b64enc)
+
+echo "$UNSIGNED_JWT.$SIGNATURE"
+</code></pre>
+      <p>
+        執行指令碼：
+      </p>
+      <pre><code class="language-bash" translate="No">$ bash jwtgen.sh
+</code></pre>
+      <p>
+
+      </p>
+      <h4 id="Example_using_Go_token" class="bcls-expander-head">使用範例<span translate="No">Go</span></h4>
+      <details>
+        <summary>
+          以下是一個引用<span translate="No">Go</span>實現（作為 cli 工具）的示例，用於在不使用任何第三方庫的情況下生成令牌：
+        </summary>
+        <aside class="bcls-aside bcls-aside--tip">如果你是新來的<span translate="No">Go</span>，請參閱<a href="https://golang.org/"><span translate="No">Go</span>編程語言</a>主頁。</aside>
+        <pre class="line-numbers"><code class="language-bash" translate="No">package main
+
+import (
+	"crypto"
+	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/rsa"
+	"crypto/sha256"
+	"crypto/x509"
+	"encoding/base64"
+	"encoding/json"
+	"encoding/pem"
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"os"
+	"strings"
+	"time"
+)
+
+// Header is the base64UrlEncoded string of a JWT header for the RS256 algorithm
+const RSAHeader = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+
+// Header is the base64UrlEncoded string of a JWT header for the EC256 algorithm
+const ECHeader = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9"
+
+// Claims represents constraints that should be applied to the use of the token
+type Claims struct {
+	Iat   float64 `json:"iat,omitempty"`   // Issued At
+	Exp   float64 `json:"exp,omitempty"`   // Expires At
+	Accid string  `json:"accid,omitempty"` // Account ID
+	Conid string  `json:"conid,omitempty"` // Content ID
+	Maxu  float64 `json:"maxu,omitempty"`  // Max Uses
+	Maxip float64 `json:"maxip,omitempty"` // Max IPs
+	Ua    string  `json:"ua,omitempty"`    // User Agent
+}
+
+func main() {
+	var key, algorithm string
+
+	c := Claims{Iat: float64(time.Now().Unix())}
+
+	flag.StringVar(&amp;key, "key", "", "Path to private.pem key file")
+	flag.StringVar(&amp;c.Accid, "account-id", "", "Account ID")
+	flag.StringVar(&amp;c.Conid, "content-id", "", "Content ID (eg, video_id or live_job_id)")
+	flag.Float64Var(&amp;c.Exp, "expires-at", float64(time.Now().AddDate(0, 0, 1).Unix()), "Epoch timestamp (in seconds) for when the token should stop working")
+	flag.Float64Var(&amp;c.Maxu, "max-uses", 0, "Maximum number of times the token is valid for")
+	flag.Float64Var(&amp;c.Maxip, "max-ips", 0, "Maximum number of unique IP addresses the token is valid for")
+	flag.StringVar(&amp;c.Ua, "user-agent", "", "User Agent that the token is valid for")
+	flag.StringVar(&amp;algorithm, "algo", "", "Key algorithm to use for signing. Valid: ec256, rsa256")
+	flag.Parse()
+
+	if key == "" {
+		fmt.Printf("missing required flag: -key\n\n")
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	if algorithm == "" {
+		fmt.Printf("missing required flag: -algo\n\n")
+		flag.Usage()
+		os.Exit(2)
+	}
+
+	if algorithm != "rsa256" &amp;&amp; algorithm != "ec256" {
+		fmt.Printf("missing valid value for -algo flag. Valid: rsa256, ec256\n\n")
+		flag.Usage()
+		os.Exit(3)
+	}
+
+	if c.Accid == "" {
+		fmt.Printf("missing required flag: -account-id\n\n")
+		flag.Usage()
+		os.Exit(4)
+	}
+
+	bs, err := json.Marshal(c)
+	if err != nil {
+		fmt.Println("failed to marshal token to json", err)
+		os.Exit(5)
+	}
+
+	kbs, err := ioutil.ReadFile(key)
+	if err != nil {
+		fmt.Println("failed to read private key", err)
+		os.Exit(6)
+	}
+
+	if algorithm == "rsa256" {
+		processRSA256(kbs, bs)
+	} else {
+		processEC256(kbs, bs)
+	}
+}
+
+func processRSA256(kbs, bs []byte) {
+	block, _ := pem.Decode(kbs)
+	if block == nil {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(7)
+	}
+
+	if block.Type != "RSA PRIVATE KEY" {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(8)
+	}
+
+	pKey, err := x509.ParsePKCS1PrivateKey(block.Bytes)
+	if err != nil {
+		fmt.Println("failed to parse rsa private key", err)
+		os.Exit(9)
+	}
+
+	message := RSAHeader + "." + base64.RawURLEncoding.EncodeToString(bs)
+
+	hash := crypto.SHA256
+	hasher := hash.New()
+	_, _ = hasher.Write([]byte(message))
+	hashed := hasher.Sum(nil)
+
+	r, err := rsa.SignPKCS1v15(rand.Reader, pKey, hash, hashed)
+	if err != nil {
+		fmt.Println("failed to sign token", err)
+		os.Exit(10)
+	}
+
+	sig := strings.TrimRight(base64.RawURLEncoding.EncodeToString(r), "=")
+
+	fmt.Println(message + "." + sig)
+}
+
+func processEC256(kbs, bs []byte) {
+	block, _ := pem.Decode(kbs)
+	if block == nil {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(7)
+	}
+
+	if block.Type != "EC PRIVATE KEY" {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(8)
+	}
+
+	pkey, err := x509.ParseECPrivateKey(block.Bytes)
+	if err != nil {
+		fmt.Println("failed to parse ec private key", err)
+		os.Exit(9)
+	}
+
+	message := ECHeader + "." + base64.RawURLEncoding.EncodeToString(bs)
+	hash := sha256.Sum256([]byte(message))
+
+	r, s, err := ecdsa.Sign(rand.Reader, pkey, hash[:])
+	if err != nil {
+		fmt.Println("failed to sign token", err)
+		os.Exit(10)
+	}
+
+	curveBits := pkey.Curve.Params().BitSize
+
+	keyBytes := curveBits / 8
+	if curveBits%8 &gt; 0 {
+		keyBytes++
+	}
+
+	rBytes := r.Bytes()
+	rBytesPadded := make([]byte, keyBytes)
+	copy(rBytesPadded[keyBytes-len(rBytes):], rBytes)
+
+	sBytes := s.Bytes()
+	sBytesPadded := make([]byte, keyBytes)
+	copy(sBytesPadded[keyBytes-len(sBytes):], sBytes)
+
+	out := append(rBytesPadded, sBytesPadded...)
+
+	sig := base64.RawURLEncoding.EncodeToString(out)
+	fmt.Println(message + "." + sig)
+}
+</code></pre>
+</details>
+
+      <h4>結果</h4>
+      <p>
+        以下是一個使用<a href="https://jwt.io/"> https://JWT.io </a>指定完整的聲明集的解碼令牌的示例：
+      </p>
+      <p>
+        標頭：
+      </p>
+      <pre class="line-numbers"><code class="language-json" translate="No">{
+  "alg": "RS256",
+  "type": "JWT"
+}
+</code></pre>
+
+      <p>
+        有效載荷：
+      </p>
+      <pre class="line-numbers"><code class="language-json" translate="No">{
+  "accid": "1100863500123",
+  "conid": "51141412620123",
+  "exp": 1554200832,
+  "iat": 1554199032,
+  "maxip": 10,
+  "maxu": 10,
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
+}
+</code></pre>
+    </section>
+
+    <section class="bcls-section">
+      <h2 id="Test_playback">測試播放</h2>
+
+      <p>雖然不是必要的，但您可能想要在設定播放器之前先測試視訊播放。</p>
+      <p>
+        要求播放：
+      </p>
+      <pre class="line-numbers"><code class="language-http" translate="No">curl -X GET \
+ -H 'Authorization: Bearer {JWT}' \
+ https://edge-auth.api.brightcove.com/playback/v1/accounts/{your_account_id}/videos/{your_video_id}
+</code></pre>
+    </section>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

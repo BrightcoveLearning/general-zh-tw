@@ -1,0 +1,1504 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本主題顯示 Oooyala 視訊和播放清單資料匯入時，如何將影片和播放清單資料對應至 Video Cloud 欄位。注意：本主題僅適用於遷移至視訊雲端的 Oyala 客戶。">
+  
+  <title>備份與視訊雲端：視訊和播放清單欄位</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+Brightcove 
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/ooyala/">從奧亞拉遷移</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">備份與視訊雲端：視訊和播放清單欄位</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+					<option value="">其他布萊特灣文件</option>
+					
+						
+							<option value="https://support.brightcove.com">文件首頁</option>
+						
+					
+						
+							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+						
+					
+						
+							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+						
+					
+						
+							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+						
+					
+						
+							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+						
+					
+						
+							<option value="https://live.support.brightcove.com">Brightcove Live</option>
+						
+					
+						
+							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+						
+					
+						
+							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
+						
+					
+						
+							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+						
+					
+						
+							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+						
+					
+						
+							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+						
+					
+						
+							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+						
+					
+						
+							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+						
+					
+						
+							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+						
+					
+						
+							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
+						
+					
+				</select>
+						<nav class="sidenav" id="side_nav">
+
+          
+            
+            <h5><a href="/index.html">首頁</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">一般資訊<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">布萊特灣產品概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">布萊特灣延續性概述</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">開放原始碼專案</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">長跑短跑影片</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">布萊特灣論壇群組和電子郵件列表</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">開發人員<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">了解 CORS </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">模塊設計模式</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">設定捲曲</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">使用</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">創建一個 JSON 網絡令牌（JWT）</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">使用港鐵 (我的追蹤) </a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">使用 Wireshark 來追蹤網路流量</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">從奧亞拉遷移<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 客戶的遷移文件</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">遷移至布萊特灣分析 API </a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">移轉至視訊雲端：擷取配接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">擷取配接器：CSV 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">擷取配接器：與阿斯佩拉一起攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">擷取配接器：使用 FTPS 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">擷取配接器：使用 OIS 2.5 攝取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">擷取配接器：使用後台 API 進行內嵌</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">擷取配接器：透過 MRSS 擷取遠端資產</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">擷取配接器：從託管的 MRSS 中擷取</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot /視訊雲端CMS 連接器</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">備份與視訊雲端：視訊和播放清單欄位</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">擷取配接器：資訊清單檔案格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">擷取配接器：XML 資訊清單檔案</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">擷取配接器：支援的內嵌格式</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">新增布萊特灣 DNS 伺服器以進行測試</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">布萊特灣 API 請求的身份驗證</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">現在趨勢報告參考</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">將 Oooyala 播放器用於視訊雲端內容</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">公用程式<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">基本 64 編碼工具</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">日期轉換器</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">字串編碼器</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">所有線上訓練課程</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">註冊參加講師指導訓練</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">訓練：視訊雲端簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">訓練：視訊雲端分析簡介</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">訓練：視訊雲端基礎知識</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">視頻雲端工作室培訓視頻</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">布萊特灣大學培訓課程</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">已知問題</a></li>
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<h1>備份與視訊雲端：視訊和播放清單欄位</h1>
+<article class="bcls-article">
+  <summary><p>本主題顯示 Oooyala 視訊和播放清單資料匯入時，如何將影片和播放清單資料對應至 Video Cloud 欄位。</p> <aside class="bcls-aside bcls-aside--information language-editable">注意：本主題<strong>僅</strong>適用於遷移至視訊雲端的 Oyala 客戶。</aside></summary>
+  <section class="bcls-section">
+    <h2 id="ad_set_apis">廣告集端點</h2>
+    
+    <p>Video Cloud 沒有一個概念<code translate="No">ad_set</code>，但與視訊相關聯的廣告集資料會移轉至<code translate="No">cue_points</code>，而且<code translate="No">ad_set_id</code>會儲存在該自訂欄位中。名稱，讓我們能夠識別與廣告集相關聯的影片。</p>
+    
+    <p>請參閱<a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a>，瞭解如何將廣告集資料對應至不同廣告來源的尖端點的詳細資訊。</p>
+    
+    <p>下表顯示支援哪些<span translate="No">Backlot API</span><code translate="No">ad_sets</code>作業。</p>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">廣告集端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="2"><code translate="No">v2/ad_sets</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 沒有廣告集的概念；與每個廣告集相關聯的部分資訊會作為廣告集關聯之影片的中點資料移轉-如需詳細資訊，請參閱<a href="/ooyala/migrating-video-cloud-ad-sets.html">廣告集</a></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 沒有廣告集的概念，因此嘗試建立廣告集將會失敗</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">v2/ad_sets/{set_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 沒有廣告集的概念；與每個廣告集相關聯的部分資訊會作為廣告集關聯之影片的中點資料移轉-如需詳細資訊，請參閱<a href="/ooyala/migrating-video-cloud-ad-sets.html">廣告集</a></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>此要求將更新相關影片的提升點資料</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>此請求將刪除相關影片的提高點資料</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">v2/ad_sets/{set_id}ads</code></td>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>將中點新增至相關視訊</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>從相關視訊移除中心點</li>
+          </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="asset_apis">資產端點</h2>
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">注意：本主題<strong>僅</strong>適用於遷移至視訊雲端的 Oyala 客戶。</aside>
+    
+    <p>下表顯示支援哪些<span translate="No">Backlot API</span><code translate="No">asset</code>作業。</p>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">資產端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">ad</code>類型的視頻將在視頻雲端中使用標籤<code translate="No">ooyala_my_ads</code></li>
+            <li><code translate="No">youtube</code>類型視訊不會移轉至視訊雲端</li>
+            <li><code translate="No">external_id</code>正在遷移到視頻雲，但將是一個只讀字段可用於播放 API（適用於提供視頻雲內容的 Oooyala 播放器）</li>
+            <li>週期性時間限制和 IP 限制不會移轉至視訊雲端</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>看到<a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">使用Backlot API提取</a>更多細節</li>
+            <li>視訊雲端擷取需要 5MB 或<code translate="No">chunk_size</code>以上 (最後一個區塊除外)-如果設定為較低的值，<code translate="No">chunk_size</code>則會傳回錯誤</li>
+            <li>由於 Video Cloud 不支援類<code translate="No">youtube</code>型視訊，因此嘗試建立這些類型的視訊將會傳回錯誤。<code translate="No">ad</code>類型的視頻可以創建為具有標籤的普通視頻<code translate="No">ooyala_my_ads</code>。</li>
+            <li><code translate="No">youtube</code>類型視訊不會移轉至視訊雲端</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/assets/{asset_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">ad</code>類型的視頻將在視頻雲端中使用標籤<code translate="No">ooyala_my_ads</code></li>
+            <li><code translate="No">youtube</code>類型視訊不會移轉至視訊雲端</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>僅透過<code translate="No">PATCH</code></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>只有移轉至視訊雲端的屬性才能更新</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/ad_set</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>廣告集將遷移至視訊雲端作為<a href="https://apis.support.brightcove.com/cms/references/cms-api-video-fields-reference.html#cuepoint">提供點</a></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">/v2/assets/{asset_id}/closed_captions</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>此請求將返回一個 HTTP 302 響應，其位置設置為標題內容</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>取代現有的 WebVTT 文字軌；請注意，您可以上傳 WebVTT 或 DFXP 字幕-DFXP 將會轉換為 WebVTT</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/{asset_id}/drm_attributes/{drm_type}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端中的 DRM 會套用至已啟用 DRM 帳戶的所有影片，除非它們被標記為不與<code translate="No">drm_disabled</code>欄位一起封裝</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端中的 DRM 會套用至已啟用 DRM 帳戶的所有影片，除非它們被標記為不與<code translate="No">drm_disabled</code>欄位一起封裝</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/generated_preview_images</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端不會儲存多個縮圖影像</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/{asset_id}/labels</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>所有<code translate="No">labels</code>將被遷移到<code translate="No">tags</code>，因此此請求將返回視頻標籤</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>所有<code translate="No">labels</code>將被移轉到<code translate="No">tags</code>，因此此此請求將添加一個視頻標籤。請注意，<strong>不</strong>支援直接在視訊雲端中更新標籤。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/{asset_id}/labels/{label_id}</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>這將取代視訊雲端中的標籤 (a <code translate="No">tag</code> )。請注意，<strong>不</strong>支援直接在視訊雲端中更新標籤。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>這會刪除視訊雲端中的標籤 (a <code translate="No">tag</code> )。請注意，<strong>不</strong>支援直接在視訊雲端中更新標籤。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/assets/{asset_id}/metadata</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">metadata</code>項目將會移轉至表單<code translate="No">tags</code>中<code translate="No">meta:;:{key}:;:{value}</code>。請注意，每個標籤的整體長度限制為 128 個單一位元組字元。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">metadata</code>項目將被移轉到表單<code translate="No">tags</code>中<code translate="No">meta:;:{key}:;:{value}</code> -此請求將以該格式添加或替換標籤。請注意，每個標籤的整體長度限制為 128 個單一位元組字元。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">metadata</code>項目將被移轉到表單<code translate="No">tags</code>中<code translate="No">meta:;:{key}:;:{value}</code> -此請求將修改該格式的標籤</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">metadata</code>項目將被移轉到表單<code translate="No">tags</code>中<code translate="No">meta:;:{key}:;:{value}</code> -此請求將刪除所有以該格式的標籤</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/{asset_id}/movie_urls</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li><code translate="No">movie_urls</code><code translate="No">sources</code>位於視訊雲端</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>在視頻雲中以相同的方式工作-這個請求將添加一個遠程<code translate="No">rendition</code>（因此<code translate="No">source</code>）到視頻</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/movie_urls/{type}</code></td>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>此請求<strong>僅刪除指定類型的遠程</strong>轉譯</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/player</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>此請求將返回默認的 Oooyala 播放器構造，因為視頻雲不會將播放器與視頻相關聯; 相反，任何視頻都可以通過其視頻與任何播放器實例相關聯<code translate="No">id</code>。您可以透過播放<a href="https://apis.support.brightcove.com/player-management/">程式管理 API 取得視訊雲端播放器</a></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/player/{player_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會將播放器與視訊產生關聯；而是，任何視訊都可以透過其視訊與任何播放程式實體建立關聯<code translate="No">id</code>。您可以透過播放<a href="https://apis.support.brightcove.com/player-management/">程式管理 API 取得視訊雲端播放器</a></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/assets/{asset_id}/preview_image_urls</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖影像，因此此此請求會傳回影<code translate="No">poster</code>像</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖影像，因此此此請求會使用清單中的第一個影像來設定影像<code translate="No">poster</code></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖影像，因此此此請求會使用清單中的第一個影像來設定影像<code translate="No">poster</code></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 只會儲存單一海報影像，您可以取代，但無法刪除</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/preview_image_files/{image_id}</code></td>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 只會儲存單一海報影像，您可以取代，但無法刪除</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/assets/{asset_id}/preview_image_files</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖影像，因此此此請求會傳回<code translate="No">poster</code>影像 URL</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖<code translate="No">poster</code>影像，因此此此請求將使用清單中的第一個影像 URL 設定為遠端資產</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 不會儲存多個縮圖<code translate="No">poster</code>影像，因此此此請求將使用清單中清單 URL 中的第一個影像設定為遠端資產</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 只會儲存單一海報影像，您可以取代，但無法刪除</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/primary_preview_image</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>Video Cloud 只存儲一個海報圖像，因此此此請求將返回</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/publishing_rule</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>只會傳回地理限制和排程，因為 Video Cloud 會在播放器上設定其他播放限制，而非影片</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/publishing_rule/{rule_id}</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端沒有發佈規則的概念。只有視訊的地理限制和排程內容才能更新。發佈規則識別碼將儲存在名稱為<code translate="No">publishing_rule_id</code></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/source_file_info</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/streams</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>將返回視訊雲端<code translate="No">sources</code></li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/uploading_urls</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>透過<span translate="No">Backlot API</span>和<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">擷取介面卡支</a>援</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/assets/{asset_id}/upload_status</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>透過<span translate="No">Backlot API</span>和<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">擷取介面卡支</a>援</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">/v2/assets/{asset_id}/youtube</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端不支援-請參閱<a href="https://social.support.brightcove.com"> Brightcove 社交</a>視訊雲端替代方案</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端不支援-請參閱<a href="https://social.support.brightcove.com"> Brightcove 社交</a>視訊雲端替代方案</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>
+          <ul>
+            <li>視訊雲端不支援-請參閱<a href="https://social.support.brightcove.com"> Brightcove 社交</a>視訊雲端替代方案</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/{asset_id}/lineup</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/assets/lineup/{asset_id}</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">/v2/assets/{asset_id}/closed_captions</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>將返回視頻<code translate="No">text_track</code>的默認值。移轉的視訊將只有一個<code translate="No">text_track</code> -可以透過視訊雲端新增其他影片。如果您新增更多文字軌道，請將預設的軌道設定為傳回此請求。</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>將取代視頻<code translate="No">text_track</code>的默認值-內嵌字幕可以是 WebVTT 或 DFXP 格式; DFXP 將轉換為 WebVTT</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>
+          <ul>
+            <li>將刪除視頻<code translate="No">text_track</code>的默認值</li>
+          </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="drm_policies">DRM 政策</h2>
+    
+    <p><strong>不</strong>支援 DRM 政策端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="deleted_assets">刪除資產端點</h2>
+    
+    <p><strong>不</strong>支援「已刪除的資產」端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="labels_endpoints">標示端點</h2>
+    
+    <p>標籤將會移轉至視訊雲端<code translate="No">tags</code>。與標籤不同，標籤是在個別影片上設定的-沒有帳戶層級的「標籤集」，標籤不是階層式的。</p>
+    
+    <!-- <figure class="bcls-figure"><img class="bcls-image" alt="Labels to Tags" src="https://learning-services-media.brightcove.com/doc-assets/node/18907-backlot-video-cloud-cms-connector/labels2tags.png" />
+    <figcaption class="bcls-caption--image">Labels to Tags</figcaption>
+    </figure> -->
+    
+    <p>除了這些差異之外，標籤可以用於許多標籤的方式，例如：</p>
+    
+    <ul>
+      <li>搜尋含有某些標籤、全部或沒有一組標籤的影片</li>
+      <li>在執行階段選取<a href="https://studio.support.brightcove.com/media/introduction-playlists.html">「智慧型」播放清單</a>的影片</li>
+    </ul>
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">請注意，雖然支援所有<code translate="No">/labels</code>端點，但某些作業 (特別是針對擁有大量視訊的帳戶) 需要更長的時間。</aside>
+    
+    <p>下表顯示支援的<span translate="No">Backlot API</span><code translate="No">labels</code>端點。</p>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">取消批次 API 標籤端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">/v2/labels</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels</code></td>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/by_full_path/{paths}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/by_full_path/{paths}</code></td>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/{label_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/{label_id}</code></td>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/{label_id}</code></td>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/{label_id}/children</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/labels/{label_id}/assets</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>標籤會顯示為<code translate="No">tags</code>視訊雲端</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="packages_endpoints">套件端點</h2>
+    
+    <p><strong>不</strong>支援套件端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="players_endpoints">玩家端點</h2>
+    
+    <p>下表顯示支援哪些<span translate="No">Backlot API</span><code translate="No">players</code>作業。</p>
+    
+    <aside class="bcls-aside bcls-aside--information language-editable">注意事項：
+    <ul>
+      <li>只支援 GET。您無法建立或更新 Oooyala 播放器</li>
+      <li>對於在移轉之前與播放器相關聯的視頻，播放器的 ID 將被存儲在視頻雲自定義字段中，稱<code translate="No">player_id</code>為維持與 Oooyala 播放器的關聯。如需詳細資訊，請參閱<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">使用 Oooyala 播放器與視訊雲端影片</a>。</li>
+    </ul>
+    </aside>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">停用 API 播放器端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/players</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><code translate="No">/v2/players/{player_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/players/{player_id}/metadata</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/players/{player_id}/scrubber_image</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/players/{player_id}/watermark</code></td>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/players/{player_id}/third_party_modules/{module_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="否" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/x16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="playlist_endpoints">播放清單端點</h2>
+    
+    <p>下表顯示支援哪些<span translate="No">Backlot API</span><code translate="No">playlists</code>作業。</p>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">停用 API 播放清單端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="2"><code translate="No">/v2/playlists</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">POST</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><code translate="No">/v2/playlists/{playlist_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PUT</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">PATCH</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">DELETE</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="processing_profiles_endpoints">處理設定檔端點</h2>
+    
+    <p>下表顯示<strong>不</strong>支援哪些<span translate="No">Backlot API</span><code translate="No">playlists</code>作業。另請參閱內<a href="https://apis.support.brightcove.com/ingest-profiles/">嵌描述檔 API </a><a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html">管理內嵌設定檔</a>，以更好地了解視訊雲端內嵌設定檔的運作方式-您的帳戶是動態傳遞帳戶，因此您不需要注意傳統內嵌系統的文件。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="provider_level_drm_policies">供應商層級 DRM 政策端點</h2>
+    
+    <p><strong>不</strong>支援供應商層級 DRM 政策端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="providers">提供者端點</h2>
+    
+    <p><strong>不</strong>支援提供者端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="publishing_rules_endpoints">發佈規則端點</h2>
+    
+    <p>透過發佈規則實作的播放限制會套用至 Video Cloud 中的個別資產。網域限制不會移轉，因為在 Video Cloud 中，這些限制是在播放器上設定的，而不是視訊。</p>
+    
+    <dl>
+      <dt>在視訊資產上</dt>
+      <dd>
+      <ul>
+        <li>地理限制</li>
+        <li>排程（開始和結束日期時間）</li>
+      </ul>
+      </dd>
+    </dl>
+    
+    <p>與地理限制和排程相關的 Oooyala 發佈規則屬性將套用至與發佈規則相關聯的視訊，並<code translate="No">id</code>將儲存在具有名稱的自訂欄位中<code translate="No">publishing_rule_id</code>。<span translate="No">Backlot API</span>發行規則作業將適用於與發佈規則相關聯的所有視訊，但只會傳回排程或地理限制。</p>
+    
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">取消批次 API 處理設定檔端點</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>取消批次 API 端點</th>
+          <th>方法</th>
+          <th>是否支援？</th>
+          <th>注意事項</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">/v2/processing_profiles</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><code translate="No">/v2/processing_profiles/{profile_id}</code></td>
+          <td><code translate="No">GET</code></td>
+          <td style="text-align:center;"><img alt="是" src="//learning-services-media.brightcove.com/doc-assets/site-assets/images/site/check16.png"/></td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="resellers_endpoints">經銷商端點</h2>
+    
+    <p><strong>不</strong>支援經銷商端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="statistics_endpoints">統計資料端點</h2>
+    
+    <p><strong>不</strong>支援統計資料端點。</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="syndications_endpoints">聯合發行端點</h2>
+    
+    <p><strong>不支援聯合發行</strong>端點。然而，布萊特灣全球服務可以建立聯合發行服務，以配合您的 Oooyala 的服務。如需詳細資訊，請聯絡您的客戶經理</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="Third_Party_Modules_endpoints">協力廠商模組端點</h2>
+    
+    <p><strong>不</strong>支援統計資料端點。</p>
+    </section>
+    </article>
+    
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
