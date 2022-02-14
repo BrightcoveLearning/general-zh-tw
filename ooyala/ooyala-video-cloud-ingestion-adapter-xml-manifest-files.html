@@ -1,489 +1,93 @@
-﻿<!doctype html>
-<html lang="zh-TW">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>Oooyal-視頻雲端攝取適配器:XML 資訊清單檔案</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-Brightcove 
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
-
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">首頁</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/ooyala/">從奧亞拉遷移</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Oooyal-視頻雲端攝取適配器:XML 資訊清單檔案</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">其他布萊特灣文件</option>
-					
-						
-							<option value="https://support.brightcove.com">文件首頁</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-						<nav class="sidenav" id="side_nav">
-
-          
-            
-            <h5><a href="/index.html">首頁</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">一般資訊<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/brightcove-product-overview.html">布萊特灣產品概述</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-continuum-overview.html">布萊特灣延續性概述</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-open-source-projects.html">開放原始碼專案</a></li>
-                  
-                
-                  
-                    <li><a href="/general/mpeg-dash-video.html">長跑短跑影片</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">布萊特灣論壇群組和電子郵件列表</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer/index.html">開發人員<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/developer/concepts-cors.html">了解 CORS </a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-introducing-json.html">JSON 簡介</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">模塊設計模式</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-set-curl.html">設定捲曲</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-using-javascript-promises.html">使用</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/create-jwt.html">創建一個 JSON 網絡令牌（JWT）</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">使用港鐵 (我的追蹤) </a></li>
-                  
-                
-                  
-                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">使用 Wireshark 來追蹤網路流量</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ooyala/index.html">從奧亞拉遷移<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 客戶的遷移文件</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">遷移至布萊特灣分析 API </a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">移轉至視訊雲端：廣告集</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">移轉至視訊雲端：擷取配接器</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">擷取配接器：CSV 資訊清單檔案</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">擷取配接器：與阿斯佩拉一起攝取</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">擷取配接器：使用 FTPS 攝取</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">擷取配接器：使用 OIS 2.5 攝取</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">擷取配接器：使用後台 API 進行內嵌</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">擷取配接器：透過 MRSS 擷取遠端資產</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">擷取配接器：從託管的 MRSS 中擷取</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot /視訊雲端CMS 連接器</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">備份與視訊雲端：視訊和播放清單欄位</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">擷取配接器：資訊清單檔案格式</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">擷取配接器：XML 資訊清單檔案</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">擷取配接器：支援的內嵌格式</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">新增布萊特灣 DNS 伺服器以進行測試</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">布萊特灣 API 請求的身份驗證</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/trending-now-report-reference.html">現在趨勢報告參考</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">將 Oooyala 播放器用於視訊雲端內容</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/utilities/index.html">公用程式<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/utilities/base-64-encoding-tool.html">基本 64 編碼工具</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/date-converter.html">日期轉換器</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/string-encoder.html">字串編碼器</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">所有線上訓練課程</a></li>
-                  
-                
-                  
-                    <li><a href="/training/register-training.html">註冊參加講師指導訓練</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-video-cloud.html">訓練：視訊雲端簡介</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">訓練：視訊雲端分析簡介</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-video-cloud-basics.html">訓練：視訊雲端基礎知識</a></li>
-                  
-                
-                  
-                    <li><a href="/training/video-cloud-studio-training-videos.html">視頻雲端工作室培訓視頻</a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">布萊特灣大學培訓課程</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">已知問題</a></li>
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">頁面內容</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-
-<h1>Oooyal-視頻雲端攝取適配器:XML 資訊清單檔案</h1>
+---
+title: 'Ooyala-Video 云攝取適配器：XML 資訊清單檔案'
+parent: Migrating from Ooyala
+---
+ <h1>    Oooyal-視訊雲端擷取適配器：XML清單文件</h1>
 <article class="bcls-article">
   <summary>您可以繼續將FTP，Aspera或MRSS與XML清單一起使用，以將視頻攝取到Video Cloud。本主題說明XML的結構。</summary>
-  <aside class="bcls-aside bcls-aside--information language-editable">注意：本主題<strong>僅</strong>適用於遷移至視訊雲端的 Oyala 客戶。</aside>
+  <aside class="bcls-aside bcls-aside--information">注意：本主題適用<strong>只要</strong> Ooyala 客戶遷移到視頻雲。</aside>
   
   <section class="bcls-section">
     <h2 id="introduction">簡介</h2>
-    <p class="shortdesc">擷取影片時，您可以使用 XML 資訊清單檔案來指定額外的中繼資料 (包括影片標題、說明、飛行時間、標籤和自訂中繼資料)，以及縮圖和隱藏式字幕檔案。通過FTP，Aspera或MRSS提取內容時，可以使用XML清單文件。</p>
-    <div class="note note"><span class="notetitle">注意：</span>本主題適用於 OIS v2.5。</div>
+    <p class="shortdesc">攝取視頻時，可以使用XML清單文件來指定其他元數據（包括視頻標題，說明，飛行時間，標籤和自定義元數據）以及縮略圖和隱藏字幕文件。通過FTP，Aspera或MRSS提取內容時，可以使用XML清單文件。</p>
+    <div class="note note"><span class="notetitle">筆記：</span>本主題適用於 OIS v2.5。</div>
   </section>
   <section class="bcls-section">
-    <h2 id="Handling_of_metadata">中繼資料的處理</h2>
-    <p>如果您在內嵌視訊時加入影片，則會以下列兩種方式之一對應至 Video Cloud 視訊欄位：<code translate="No">metadata</code></p>
+    <h2 id="Handling_of_metadata">元數據的處理</h2>
+    <p>如果包括<code translate="No">metadata</code>攝取視頻時，它會以以下兩種方式之一映射到“視頻雲"視頻字段：</p>
     <ol>
-      <li><strong>默認情況</strong>下，每個<code translate="No">metadata</code>鍵/值對被添加為<em>標籤</em>的形式：<code translate="No">meta::key::value</code>。例如，<code translate="No">&lt;ooyala:metadata name="category"&gt;cooking&lt;/ooyala:metadata&gt;</code>會產生標籤<code translate="No">meta::category::cooking</code></li>
-      <li>如果您寧願使用<code translate="No">custom_fields</code>儲存中繼資料，Brightcove 支援可以變更您帳戶上的設定來執行此動作。請注意下列事項：
+      <li><strong>默認情況下</strong>， 每個<code translate="No">metadata</code>鍵/值對被添加為 <em>標籤</em> 形式：<code translate="No">meta::key::value</code> .例如，<code translate="No">&lt;ooyala:metadata name="category"&gt;cooking&lt;/ooyala:metadata&gt;</code>會產生標籤<code translate="No">meta::category::cooking</code></li>
+      <li>如果您願意使用<code translate="No">custom_fields</code>為了存儲元數據，Brightcove支持人員可以更改您帳戶上的設置來做到這一點。請注意以下幾點：
         <ul>
-          <li>您將需要建立自訂欄位，其名稱對應於您的中繼資料金鑰。</li>
-          <li>根據預設，自訂欄位的數量限制為 10 個，因此如果您需要更多的時間來容納您的中繼資料，您將需要向支援請求額外的自訂欄位。</li>
-          <li>如果您的帳戶中不存在與每個中繼資料項目對應的自訂欄位，則整個中繼資料作業將會失敗。</li>
+          <li>您將需要使用與元數據鍵相對應的名稱來創建自定義字段。</li>
+          <li>默認情況下，自定義字段的數量限制為10，因此，如果您需要更多的自定義字段來容納元數據，則需要向支持部門請求其他自定義字段。</li>
+          <li>如果您的帳戶中不存在與每個元數據項相對應的自定義字段，則整個元數據操作將失敗。</li>
         </ul>
       </li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="XML_Manifest_Elements">XML 資訊清單元素</h2>
-    <p>您可以在 XML 資訊清單檔案中使用下列元素。</p>
+    <h2 id="XML_Manifest_Elements">XML清單元素</h2>
+    <p>您可以在XML清單文件中使用以下元素。</p>
     <table class="bcls-table">
       <caption class="bcls-caption--table">
-      XML 資訊清單元素
+      XML清單元素
       </caption>
       <thead class="bcls-table__head" align="left">
         <tr>
-          <th class="entry" valign="top" width="9.343065693430658%" id="d1041772e39">XML 標籤</th>
+          <th class="entry" valign="top" width="9.343065693430658%" id="d1041772e39">XML標籤</th>
           <th class="entry" valign="top" width="36.496350364963504%" id="d1041772e42">描述</th>
-          <th class="entry" valign="top" width="46.86131386861314%" id="d1041772e45">必要/選擇性</th>
+          <th class="entry" valign="top" width="46.86131386861314%" id="d1041772e45">必需/可選</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
           <td><samp translate="No">&lt;channel&gt; </samp></td>
-          <td>包含一個或多個<samp translate="No">&lt;item&gt;</samp>元素。</td>
+          <td>包含一項或多項 <samp translate="No">&lt;item&gt;</samp> 元素。</td>
           <td>必需的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;item&gt;</samp></td>
-          <td>代表要內嵌的單一視訊。您可以指定多個視頻（<samp translate="No">&lt;item&gt;</samp>標籤）。包含此表格中的剩餘標籤。</td>
+          <td>表示要提取的單個視頻。您可以指定多個視頻 (<samp translate="No">&lt;item&gt;</samp> 標籤）在 XML 清單文件中。包含此表中的其餘標籤。</td>
           <td>必需的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;media:content&gt;</samp></td>
-          <td>指定要提取的視頻。下列其中一項：
+          <td>指定要提取的視頻。以下之一：
             <ul class="ul">
               <li>您上傳的視頻的文件名。</li>
-              <li>通過MRSS進行攝取（請參見<a class="xref" title="您可以使用Media RSS（MRSS）來讓Ooyala從您發布的MRSS feed中從您自己的系統中提取內容。 Backlot從MRSS feed中提取元數據，並創建遠程資產或下載（從它們託管的地方）並處理視頻和任何相關文件（縮略圖，隱藏式字幕文件等）。" href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">從遠程託管的MRSS Feed提取</a>），即視頻所在的網址。URL 可以包含<samp translate="No">http://</samp>或<samp translate="No">https://</samp>。</li>
+              <li>通過MRSS進行攝取（請參見<a class="xref" title="You can use Media RSS (MRSS) to have Ooyala pull your content from your own system from an MRSS feed that you publish. Backlot pulls the metadata from the MRSS feed and either creates a remote asset or downloads (from where they are hosted) and processes the videos and any associated files (thumbnails, closed caption files, etc.)." href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">從遠程託管的MRSS Feed提取</a>），即視頻所在的網址。URL 可以包括 <samp translate="No">http://</samp> 或者 <samp translate="No">https://</samp>。</li>
             </ul>
-            對於遠程資產，請使用<samp translate="No">&lt;ooyala:remoteasset&gt;</samp>代替。</td>
-          <td>必要 (遠端資產除外)</td>
+            對於遠程資產，請使用 <samp translate="No">&lt;ooyala:remoteasset&gt;</samp> 反而。</td>
+          <td>必需（遠程資產除外）</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;media:title&gt;</samp></td>
-          <td>影片的名稱或標題。</td>
+          <td>視頻的名稱或標題。</td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;media:thumbnail&gt;</samp></td>
-          <td>指定縮圖 (預覽影像)。下列其中一項：
+          <td>指定縮略圖（預覽圖像）。以下之一：
             <ul class="ul">
               <li>您上傳的縮略圖的文件名。</li>
-              <li>縮圖所在的網址。URL 可以包含<samp translate="No">http://</samp>或<samp translate="No">https://</samp>。</li>
+              <li>縮略圖所在的網址。URL 可以包括 <samp translate="No">http://</samp> 或者 <samp translate="No">https://</samp>。</li>
             </ul></td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;media:subTitle&gt;</samp></td>
-          <td>指定隱藏式字幕檔案 (DFXP、WebVTT 和 SRT 檔案支援)。看到<a class="xref" title="您可以透過 Backlot 或 Oooyala 攝取服務 (OIS) 擷取隱藏式字幕檔案。" href="/ooyala/migrating-video-cloud-ingestion-adapter.html">攝取隱藏式字幕文件</a>。屬性：
+          <td>指定隱藏式字幕文件（DFXP，WebVTT和SRT文件支持）。看<a class="xref" title="You can ingest closed caption files via Backlot or the Ooyala Ingestion Service (OIS)." href="/ooyala/migrating-video-cloud-ingestion-adapter.html">攝取隱藏式字幕文件</a>。屬性：
             <ul class="ul">
-              <li><samp translate="No">href</samp>（必需）-以下之一：
+              <li><samp translate="No">href</samp> （必需）- 以下之一：
                 <ul class="ul">
-                  <li>您上傳的隱藏式字幕檔案的檔案名稱。範例：<samp translate="No">caption-1.dfxp</samp></li>
-                  <li>隱藏式字幕檔案所在的網址。URL 可以包含<samp translate="No">http://</samp>或<samp translate="No">https://</samp>。</li>
+                  <li>您上傳的隱藏式字幕文件的文件名。範例： <samp translate="No">標題-1.dfxp</samp></li>
+                  <li>隱藏式字幕文件所在的URL。URL 可以包括 <samp translate="No">http://</samp> 或者 <samp translate="No">https://</samp>。</li>
                 </ul>
-                <samp translate="No">lang</samp>（可選）-隱藏字幕文件的語言。兩個字母的代碼。看到<a class="xref" title="在將隱藏字幕文件上傳到Backlot之前，請確認您使用的是受支持的語言和文件格式。" href="/ooyala/migrating-video-cloud-ingestion-adapter.html">支持的隱藏式字幕</a>。</li>
-              <li><samp translate="No">frameRate</samp>（可選）-隱藏字幕文件的幀頻。單位是以每秒影格數 (FPS) 為單位。預設值為 30。較舊的隱藏式字幕檔案可能是 24 個。</li>
+                <samp translate="No">朗</samp> （可選）- 隱藏式字幕文件的語言。兩個字母的代碼。看<a class="xref" title="Before uploading closed caption files to Backlot, verify that you are using a supported language and file format." href="/ooyala/migrating-video-cloud-ingestion-adapter.html">支持的隱藏式字幕</a>。</li>
+              <li><samp translate="No">幀率</samp> （可選）-隱藏式字幕文件的幀頻。單位為每秒幀數（FPS）。默認值為30。較早的隱藏式字幕文件可能是24。</li>
             </ul>
-            <div class="note note"><span class="notetitle">注意：</span>如果指定，則有責任為您提供有效的值<samp translate="No">lang</samp>和<samp translate="No">frameRate</samp>。有效值將添加到DFXP文件中。不符合的值將被忽略。無論哪種方式，隱藏式字幕文件都被添加到Backlot中並鏈接到資產。</div></td>
+            <div class="note note"><span class="notetitle">筆記：</span>如果指定，則您有責任為 <samp translate="No">朗</samp> 和 <samp translate="No">幀率</samp>。有效值將添加到DFXP文件中。不符合的值將被忽略。無論哪種方式，隱藏式字幕文件都被添加到Backlot中並鏈接到資產。</div></td>
           <td>可選的</td>
         </tr>
         <tr>
@@ -493,62 +97,59 @@ Brightcove
         </tr>
         <tr>
           <td><samp translate="No">&lt;link&gt;</samp></td>
-          <td>嵌入視訊的永久 URL。映射到創建的資產的<samp translate="No">hosted_at</samp>屬性。</td>
+          <td>嵌入視頻的永久URL。映射到創建的資產的 <samp translate="No">託管_at</samp> 財產。</td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;dcterms:valid&gt;</samp></td>
-          <td>飛行時間代表可以播放資產的開始和結束時間。範例：
+          <td>飛行時間代表可以播放資產的開始時間和結束時間。範例：
             <pre class="pre codeblock">
-  &lt;dcterms:valid&gt;start=2011-06-28T15:15:00-07:00;
-                 結束時間:下午 6 時
-  &lt;/dcterms:valid&gt;</pre></td>
+  &lt;dcterms:valid&gt;start=2011-06-28T15:15:00-07:00; end=2022-12-01T16:00:00-07:00;scheme=W3C-DTF &lt;/dcterms:valid&gt;</pre></td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:labels&gt;</samp></td>
-          <td>一個或多個標籤，用逗號分隔。例：<samp translate="No">/sports,/sports/jogging</samp>。有關背景，請參見<a class="xref" title="添加到外部發布目標後，標籤會指定要在外部發布的視頻，頻道和頻道集。" href="/ooyala/migrating-video-cloud-ingestion-adapter.html">標籤</a>。</td>
+          <td>一個或多個標籤，以逗號分隔。範例： <samp translate="No">/運動，/運動/慢跑</samp>。有關背景，請參見<a class="xref" title="When added to external publishing targets, labels specify which videos, channels, and channel sets to publish externally." href="/ooyala/migrating-video-cloud-ingestion-adapter.html">標籤</a>。</td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;media:keywords&gt;</samp></td>
-          <td>定義標籤的另一種方式（不帶正斜杠）。以逗號分隔的內容將作為標籤添加到視頻中。僅當不存在具有相同名稱的標籤時，才會創建新標籤。
-            <p>例如，對於以下<samp translate="No">&lt;media:keywords&gt;</samp>標籤，標籤<samp translate="No">label1</samp>和<samp translate="No">label2</samp>將被創建並作為標籤添加到視頻中。標籤名為<samp translate="No">parentlabel</samp>也將創建帶有標籤的<samp translate="No">childlabel</samp>嵌套在裡面。</p>
+          <td>定義標籤的另一種方式（不帶正斜杠）。以逗號分隔的內容將作為標籤添加到視頻中。僅當不存在具有相同名稱的標籤時，才會創建一個新標籤。
+            <p>例如，對於以下 <samp translate="No">&lt;media:keywords&gt;</samp> 標籤，標籤 <samp translate="No">標籤 1</samp> 和 <samp translate="No">標籤2</samp> 將被創建並作為標籤添加到視頻中。一個名為 <samp translate="No">父標籤</samp> 也將被創建，帶有標籤 <samp translate="No">子標籤</samp> 嵌套在裡面。</p>
             <pre class="pre codeblock">
-  &lt;media：keywords&gt; label1，label2，
-      parentlabel / childlabel &lt;/ media：keywords&gt;</pre>
-            <div class="note note"><span class="notetitle">注意：</span>內容<samp translate="No">&lt;media:keywords&gt;</samp>當<samp translate="No">&lt;ooyala:labels&gt;</samp>標記包含在XML清單文件或MRSS中。</div></td>
+  &lt;media:keywords&gt;label1, label2, parentlabel/childlabel&lt;/media:keywords&gt;</pre>
+            <div class="note note"><span class="notetitle">筆記：</span>的內容 <samp translate="No">&lt;media:keywords&gt;</samp> 被忽略時 <samp translate="No">&lt;ooyala:labels&gt;</samp> 標記包含在 XML 清單文件或 MRSS 中。</div></td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:embedcode&gt;</samp></td>
-          <td>視訊雲端視訊 ID。</td>
-          <td>選擇性 (如果您要更新視訊而非新增視訊，則必須使用此選項)</td>
+          <td>Video Cloud視頻ID。</td>
+          <td>可選（如果您要更新視頻而不是添加新視頻，則為必填項）</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:profileguid&gt;</samp></td>
-          <td>處理定義檔的 ID，這是一組編碼，定義主視訊在轉碼過程中必須轉換成的格式。有關詳細信息，請聯繫您的Ooyala支持代表。</td>
+          <td>處理配置文件的ID，它是一組編碼，這些編碼定義了在轉碼過程中主視頻必須轉換成的格式。有關詳細信息，請聯繫您的Ooyala支持代表。</td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:metadata&gt;</samp></td>
-          <td>視訊的自訂中繼資料。您可以為每種類型的元數據都有一個元素。見<a href="#Handling_of_metadata">元數據的處理</a>本節中有關如何操作的詳細信息<code translate="No">metadata</code>作為特殊標籤添加到視頻中。範例：<code translate="No">&lt;ooyala:metadata name="category"&gt;cooking&lt;/ooyala:metadata&gt;</code></td>
+          <td>視頻的自定義元數據。您可以為每種類型的元數據都有一個元素。見<a href="#Handling_of_metadata">元數據的處理</a>部分，了解有關如何操作的詳細信息<code translate="No">metadata</code>作為特殊標籤添加到視頻中。例子：<code translate="No">&lt;ooyala:metadata name="category"&gt;cooking&lt;/ooyala:metadata&gt;</code></td>
           <td>可選的</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:remoteasset&gt;</samp></td>
-          <td>指定要內嵌的遠端資產。遠程資產是託管在Backlot之外的其他地方的視頻。指定下列屬性：
+          <td>指定要提取的遠程資產。遠程資產是託管在Backlot之外的其他地方的視頻。指定以下屬性：
             <ul class="ul">
-              <li><samp translate="No">durationInMs</samp>：媒體持續時間（以毫秒為單位）</li>
-              <li><samp translate="No">url</samp>：遠程資產的URL。URL 可以包含<samp translate="No">http://</samp>或<samp translate="No">https://</samp>。</li>
+              <li><samp translate="No">持續時間InMs</samp>：媒體持續時間（以毫秒為單位）</li>
+              <li><samp translate="No">網址</samp>：遠程資產的URL。URL 可以包括 <samp translate="No">http://</samp> 或者 <samp translate="No">https://</samp>。</li>
             </ul>
-            此設置映射到<samp translate="No">hosted_at</samp>遠程資產的屬性。範例：<samp translate="No">&lt;ooyala:remoteasset durationInMs='5000' url="http://your_website/your_remote_assets.mp4" /&gt;</samp>
-            <div class="note note"><span class="notetitle">注意：</span>建立遠端資產之後，其傳播到各個 CDN 可能會延遲 60 秒或更長。如果您要求遠端資產建立之後太快，CDN 會快取結果，這可能需要數分鐘才能清除。最佳作法：建立後，等待 30 或 60 秒，使用<span class="ph"> Backlot API </span><samp translate="No">[GET] /v2/assets/<var class="keyword varname">asset_id</var></samp>路由進行查詢，並在擷取遠端資產的內嵌程式碼 (內容 ID 或資產 ID) 之後，然後繼續內嵌資產。</div></td>
-          <td>必要 (僅限遠端資產)</td>
+            此設置映射到 <samp translate="No">託管_at</samp> 遠程資產的屬性。範例： <samp translate="No">&lt;ooyala:remoteasset durationInMs='5000' url="http://your_website/your_remote_assets.mp4" /&gt;</samp>
+            <div class="note note"><span class="notetitle">筆記：</span>創建遠程資產後，其傳播到各種CDN的時間可能會延遲60秒或更長時間。如果您在創建遠程資產後不久請求遠程資產，結果將被CDN緩存，這可能需要幾分鐘的時間才能清除。最佳實踐：創建後，等待 30 或 60 秒，使用<span class="ph">外場API</span> <samp translate="No">[獲取] /v2/assets/<var class="keyword varname">資產 ID</var></samp> 路由，並在檢索遠程資產的嵌入代碼（內容 ID 或資產 ID）後，然後繼續嵌入資產。</div></td>
+          <td>必需（僅限遠程資產）</td>
         </tr>
         <tr>
           <td><samp translate="No">&lt;ooyala:profileguid&gt;</samp></td>
-          <td>指定要用於處理視訊的視訊雲端內嵌描述檔。如果您不想使用帳戶預設設定檔，則必須指定您想要使用的設定檔。請參閱<a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html">管理嵌入設定檔</a>。</td>
+          <td>指定用於處理視頻的視頻雲提取配置文件。如果不想使用帳戶默認配置文件，則必須指定要使用的默認配置文件。看<a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html">管理攝取配置文件</a>。</td>
           <td>可選的</td>
         </tr>
       </tbody>
@@ -556,247 +157,29 @@ Brightcove
   </section>
   <section class="bcls-section">
     <h2 id="example">範例</h2>
-    <p><strong class="ph b">示例XML清單文件（OIS v2.5）</strong></p>
+    <p><strong class="ph b">XML清單文件示例（OIS v2.5）</strong></p>
     <pre class="pre codeblock">
-  &lt;?xml version="1.0" encoding="utf-8"?&gt;
-  &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
-    簡介:數位字元 =」http://purl.org/dc/terms/」
-    安裝:fh =」http://purl.org/syndication/history/1.0」
-    密碼:烏亞拉 =」http://www.ooyala.com/mrss/ "&gt;
-    &lt;channel&gt;
-      &lt;item&gt;
-        &lt;media:content url="test.mp4" &gt;&lt;/media:content&gt;
-        &lt;media:subTitle href="my_caption.dfxp"&gt;&lt;/media:subTitle&gt;
-        &lt;media:thumbnail url="my_thumbnail.jpg" filesize="35712"&gt;&lt;/media:thumbnail&gt;
-        &lt;媒體:標題 &gt; 測試 XML &lt;/媒體:標題 &gt;
-        &lt;媒體：描述 &gt; 這是一個示例 &lt;/媒體：描述 &gt;
-        &lt;ooyala:labels&gt;/test,/example,/xml&lt;/ooyala:labels&gt;
-        &lt;dcterms:valid&gt;start=2016-01-01T15:15:00-07:00;
-          end=2022-01-01T16:00:00-07:00&lt;/dcterms:valid&gt;
-        &lt;ooyala:profileguid&gt;57d5a5a10f654fe79ef954dc8d29a108&lt;/ooyala:profileguid&gt;
-      &lt;/item&gt;
-    &lt;/channel&gt;
-  &lt;/rss&gt;</pre>
+  &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fh="http://purl.org/syndication/history/1.0" xmlns:ooyala="http://www.ooyala.com/mrss/"&gt; &lt;channel&gt; &lt;item&gt; &lt;media:content url="test.mp4" &gt;&lt;/media:content&gt; &lt;media:subTitle href="my_caption.dfxp"&gt;&lt;/media:subTitle&gt; &lt;media:thumbnail url="my_thumbnail.jpg" filesize="35712"&gt;&lt;/media:thumbnail&gt; &lt;media:title&gt;Test XML&lt;/media:title&gt; &lt;media:description&gt;This is an example&lt;/media:description&gt; &lt;ooyala:labels&gt;/test,/example,/xml&lt;/ooyala:labels&gt; &lt;dcterms:valid&gt;start=2016-01-01T15:15:00-07:00; end=2022-01-01T16:00:00-07:00&lt;/dcterms:valid&gt; &lt;ooyala:profileguid&gt;57d5a5a10f654fe79ef954dc8d29a108&lt;/ooyala:profileguid&gt; &lt;/item&gt; &lt;/channel&gt; &lt;/rss&gt;</pre>
   </section>
   <section class="bcls-section">
-    <h2 id="step_by_step">逐步</h2>
+    <h2 id="step_by_step">一步步</h2>
     <p><strong class="ph b">創建一個XML清單文件</strong></p>
     <p>要創建XML元數據文件：</p>
     <ol class="bcls-tasklist">
       <li>上載您的視頻和其他內容（縮略圖，隱藏式字幕文件等）。</li>
-      <li>開啟文字編輯器，最好是驗證 XML 的編輯器。</li>
-      <li>新增必要的 XML 標頭。例如：
+      <li>打開一個文本編輯器，最好是一個驗證XML的文本編輯器。</li>
+      <li>添加所需的XML標頭。例如：
         <pre class="pre codeblock">
-  &lt;?xml version="1.0" encoding="utf-8"?&gt;
-  &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
-       簡介:數位字元 =」http://purl.org/dc/terms/」
-       安裝:fh =」http://purl.org/syndication/history/1.0」
-       密碼:烏亞拉 =」http://www.ooyala.com/mrss/ "&gt;</pre>
+  &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fh="http://purl.org/syndication/history/1.0" xmlns:ooyala="http://www.ooyala.com/mrss/"&gt;</pre>
       </li>
-      <li>創建一個<samp translate="No">channel</samp>容器。</li>
-      <li>創建一個<samp translate="No">item</samp>每個視頻的條目，其中包含上表中的所需元素。
-        <p>在下列範例中，XML 會指定兩個視訊的中繼資料。對於第一個視訊，檔案和縮圖位於上傳伺服器上，並從該伺服器提取。對於第二個視頻，文件和縮略圖已經上傳到 Oooyala 服務器。第二個視頻也有飛行時間。</p>
+      <li>創建一個 <samp translate="No">渠道</samp> 容器。</li>
+      <li>創建一個 <samp translate="No">物品</samp> 每個視頻的條目，包含上表中所需的元素。
+        <p>在以下示例中，XML指定了兩個視頻的元數據。對於第一個視頻，文件和縮略圖位於上傳服務器上，並從該服務器中拉出。對於第二個視頻，文件和縮略圖已經上傳到Ooyala服務器。第二個視頻也有飛行時間。</p>
         <pre class="pre codeblock">
-  &lt;?xml version="1.0" encoding="utf-8"?&gt;
-  &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
-       簡介:數位字元 =」http://purl.org/dc/terms/」
-       安裝:fh =」http://purl.org/syndication/history/1.0」
-       密碼:烏亞拉 =」http://www.ooyala.com/mrss/ "&gt;
-  
-       &lt;channel&gt;
-             &lt;item&gt;
-              &lt;media:content url="http://mysite.com/upload/lacrosse_70.mov" /&gt;
-              &lt;media:thumbnail url="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt;
-              &lt;媒體：標題 &gt; 運動，真正存在：長曲棍球 &lt;/媒體:標題 &gt;
-              &lt;media:description&gt;My description of my video&lt;/media:description&gt;
-              &lt;ooyala:labels&gt;/sports/lacrosse,/hobbies/lacrosse&lt;/ooyala:labels&gt;
-              &lt;link&gt;http://mysite.com/videos/sports/real_sports.html&lt;/link&gt;
-              &lt;ooyala:metadata name="video_ID"&gt;70&lt;/ooyala:metadata&gt;
-              &lt;ooyala:metadata name="season_number"&gt;1&lt;/ooyala:metadata&gt;
-             &lt;/item&gt;
-  
-             &lt;item&gt;
-              &lt;media:content url="curling_71.mov" /&gt;
-              &lt;media:thumbnail url="curling_71_previewimage.jpg" /&gt;
-              &lt;媒體：標題 &gt; 運動，真正存在：捲曲 &lt;/媒體:標題 &gt;
-              &lt;media:description&gt;My description of my video&lt;/media:description&gt;
-              &lt;ooyala:labels&gt;/sports/curling,/hobbies/curling&lt;/ooyala:labels&gt;
-              &lt;link&gt;http://mysite.com/videos/sports/real_sports.html&lt;/link&gt;
-              &lt;ooyala:metadata name="video_ID"&gt;71&lt;/ooyala:metadata&gt;
-              &lt;ooyala:metadata name="season_number"&gt;1&lt;/ooyala:metadata&gt;
-              &lt;!-- set flight times --&gt;
-              &lt;dcterms:valid&gt;start=2011-06-28T15:15:00-07:00;
-                  結束時間:下午 6 時
-                  &lt;/dcterms:valid&gt;
-  
-             &lt;/item&gt;
-       &lt;/channel&gt;
-  &lt;/rss&gt;    </pre>
+  &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fh="http://purl.org/syndication/history/1.0" xmlns:ooyala="http://www.ooyala.com/mrss/"&gt; &lt;channel&gt; &lt;item&gt; &lt;media:content url="http://mysite.com/upload/lacrosse_70.mov" /&gt; &lt;media:thumbnail url="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt; &lt;media:title&gt;Sports that Really Exist:Lacrosse&lt;/media:title&gt; &lt;media:description&gt;My description of my video&lt;/media:description&gt; &lt;ooyala:labels&gt;/sports/lacrosse,/hobbies/lacrosse&lt;/ooyala:labels&gt; &lt;link&gt;http://mysite.com/videos/sports/real_sports.html&lt;/link&gt; &lt;ooyala:metadata name="video_ID"&gt;70&lt;/ooyala:metadata&gt; &lt;ooyala:metadata name="season_number"&gt;1&lt;/ooyala:metadata&gt; &lt;/item&gt; &lt;item&gt; &lt;media:content url="curling_71.mov" /&gt; &lt;media:thumbnail url="curling_71_previewimage.jpg" /&gt; &lt;media:title&gt;Sports that Really Exist:Curling&lt;/media:title&gt; &lt;media:description&gt;My description of my video&lt;/media:description&gt; &lt;ooyala:labels&gt;/sports/curling,/hobbies/curling&lt;/ooyala:labels&gt; &lt;link&gt;http://mysite.com/videos/sports/real_sports.html&lt;/link&gt; &lt;ooyala:metadata name="video_ID"&gt;71&lt;/ooyala:metadata&gt; &lt;ooyala:metadata name="season_number"&gt;1&lt;/ooyala:metadata&gt; &lt;!-- set flight times --&gt; &lt;dcterms:valid&gt;start=2011-06-28T15:15:00-07:00; end=2022-12-01T16:00:00-07:00;scheme=W3C-DTF &lt;/dcterms:valid&gt; &lt;/item&gt; &lt;/channel&gt; &lt;/rss&gt;    </pre>
       </li>
-      <li><span>將文件另存為XML。請務必指定唯一的名稱。如果您指定兩個具有相同名稱的文件並在另一個文件正在處理時上傳一個，則第二個文件可能會被忽略。</span></li>
-      <li><span>使用您選擇的上載方法，在上載視頻時上載XML清單文件。見<a class="xref" title="您可以使用 FTPS (建議使用) 或 FTP (不建議使用) 將影片、縮圖、隱藏式字幕和資訊清單檔案上傳至 Backlot。" href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">的FTP</a>要么<a class="xref" title="您可以使用 Aspera 文件傳輸軟件將視頻，縮略圖，隱藏字幕和清單文件上傳到 Backlot。" href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">阿斯佩拉</a>。</span></li>
+      <li><span>將文件另存為XML。確保指定唯一名稱。如果您指定兩個具有相同名稱的文件並在處理另一個文件時上傳一個文件，則第二個文件可能會被忽略。</span></li>
+      <li><span>使用您選擇的上載方法，在上載視頻時上載XML清單文件。見<a class="xref" title="You can use FTPS (recommended) or FTP (deprecated) to upload videos, thumbnails, closed captions, and manifest files to Backlot." href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">的FTP</a>或者<a class="xref" title="You can use Aspera file transfer software to upload videos, thumbnails, closed captions and manifest files to Backlot." href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">阿斯佩拉</a>。</span></li>
     </ol>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">頁面內容</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>布萊特灣支援</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">系統狀態</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">文獻資料</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>訓練</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">布萊特灣大學</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">亮麗</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  
-  <!-- <script src="/assets/js/toc.js"></script> -->
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

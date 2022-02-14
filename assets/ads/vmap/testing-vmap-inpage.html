@@ -1,14 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <title>VMMAP/大型測試</title>
   <style>
-    .video-js {
-      height: 344px;
-      width: 610px;
-    }
+    .video-js { height: 344px; width: 610px; }
   </style>
   <link href="//players.brightcove.net/videojs-ima3/videojs.ima3.min.css" rel="stylesheet">
 </head>
@@ -38,13 +35,7 @@
 
   <script type="text/javascript" src="http://players.brightcove.net/videojs-ima3/videojs.ima3.min.js"></script>
   <script type="text/javascript">
-    videojs('myPlayerID').ready(function(){
-      var myPlayer = this;
-      myPlayer.ima3({
-        serverUrl: "http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml",
-        postrollTimeout: 2000
-      });
-    });
+    videojs('myPlayerID').ready(function() { var myPlayer = this; myPlayer.ima3({ serverUrl: "http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml", postrollTimeout: 2000 } ); });
   </script>
 
 </body>
