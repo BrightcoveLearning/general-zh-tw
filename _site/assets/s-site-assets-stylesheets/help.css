@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <title></title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand"
+            href="https://support.brightcove.com/"
+            style="margin-left: 15px;">
+            <img class="logo-icon me-2"
+              src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png"
+              alt="logo" style="margin-bottom: 9px;">
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Home</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2">
+              <i class="fa-solid fa-plus"></i></span>&nbsp;General Information</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-product-overview.html">Brightcove Product Overview</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/roku-trick-play.html">Brightcove Videos on Roku Trick Play</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-open-source-projects.html">Open Source Projects</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/mpeg-dash-video.html">MPEG-DASH Video</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/developer/index.html"><span class="theme-icon-holder me-2">
+              <i class="fa-solid fa-plus"></i></span>&nbsp;Developers</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-cors.html">Understanding CORS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-introducing-json.html">Introducing JSON</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-javascript-debugging-basics.html">JavaScript Debugging Basics</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-javascript-module-design-pattern.html">The JavaScript Module Design Pattern</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-set-curl.html">Setting up cURL</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/concepts-using-javascript-promises.html">Using JavaScript Promises</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/create-json-web-token.html">Creating a JSON Web Token (JWT)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/debugging-mobile-devices.html">Debugging on Mobile Devices</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/using-mtr-to-look-at-network-traffic.html">Using MTR (my traceroute)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer/using-wireshark-track-network-traffic-debugging.html">Using Wireshark to Track Network Traffic</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/utilities/index.html"><span class="theme-icon-holder me-2">
+              <i class="fa-solid fa-plus"></i></span>&nbsp;Utilities</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/utilities/base-64-encoding-tool.html">Base 64 Encoding Tool</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/utilities/date-converter.html">Date Converter</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/utilities/string-encoder.html">String Encoder</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/training/index.html"><span class="theme-icon-holder me-2">
+              <i class="fa-solid fa-plus"></i></span>&nbsp;Training</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/online-training-courses.html">All Online Training Courses</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/register-training.html">Register for Instructor-led Training</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/training-demand-introduction-video-cloud.html">Training: Introduction to Video Cloud</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/training-demand-introduction-video-cloud-analytics.html">Training:  Introduction to Video Cloud Analytics</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/training-demand-video-cloud-basics.html">Training: Video Cloud Basics</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/video-cloud-studio-training-videos.html">Video Cloud Studio Training Videos</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/training/brightcove-university.html">Brightcove University Training Courses</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2">
+              <i class="fa-solid fa-plus"></i></span>&nbsp;Support</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/known-issues-studio-brightcove-player-and-apis.html">Known Issues</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Viewing the Brightcove System Status Page</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contact Sales</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Opening a Support Case</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Reset Your Support Portal Password</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Home</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/assets/">Assets</a></li>
+            
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/assets/s-site-assets-stylesheets/">S site assets stylesheets</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page"></li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br>
+      
+      
+--- 
+layout: null--- 
+
+@import url(https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap);
+
+body, .body {
+	font-family: 'articulat-cf', sans-serif;
+	font-size: 14px;
+	counter-reset: figure 0 table 0 step 0;
+	background-color: white;
+	color: rgb(1, 5, 14);
+	margin: 16px 24px;
+	position: relative;
+}
+
+h1 {
+	height: auto;
+	color: rgb(1, 5, 14);
+	font-size: 2.5rem;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	margin-top: 16px;
+	margin-bottom: 0;
+}
+
+h2 {
+	font-size: 1.7rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+summary {
+	display: block;
+}
+
+.breadcrumb {
+	padding: 0 1rem;
+	margin-left: 2px;
+}
+
+.breadcrumb-item, .breadcrumb-item.active {
+	font-size: 1em;
+	/* line-height: 16px; */
+	color: rgb(8, 8, 140);
+}
+
+.breadcrumb-item * {
+	color: rgb(8, 8, 140);
+}
+
+.bcls-article {
+	font-size: 14px;
+}
+
+.bcls-section {
+	/*  padding-top: .5em; */
+}
+
+.external-link-icon {
+	height: .9em;
+	margin-left: .2rem;
+	vertical-align: text-top;
+}
+
+#breadcrumbs {
+	margin-left: -15px;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+#breadcrumbs>ol {
+	background-color: rgb(255, 255, 255);
+	color: rgb(8, 8, 140);
+	z-index: 9999;
+}
+
+article>summary {
+	margin-bottom: 16px;
+	font-size: 14px;
+	cursor: auto;
+}
+
+p, div, ul, ol {
+	margin-bottom: 1em !important;
+	font-size: 14px;
+}
+
+a, section a {
+	color: rgb(8, 8, 140) !important;
+	text-decoration: none;
+	background-color: transparent
+}
+
+a, .a, a::visited, a::hover {
+	color: rgb(8, 8, 140)!important;
+}
+
+.bcls-section a, .bcls-section a::visited, .bcls-section a::hover {
+	color: rgb(8, 8, 140)!important;
+}
+
+a::hover {
+	text-decoration: underline;
+}
+
+ul.doc-links {
+	list-style: none;
+	margin-left: -2em;
+}
+
+/* details */
+
+*, details::before, details::after {
+	box-sizing: border-box;
+}
+
+details {
+	background-color: rgb(255, 255, 255);
+	margin: 0 auto 0;
+	padding: 0;
+	width: 100%;
+	/* max-width: calc(100% - 48px); */
+	position: relative;
+	border-bottom: 1px solid rgb(229, 230, 230);
+	border-right: none;
+	border-left: none;
+	border-radius: 0;
+}
+
+details.details-section:first-of-type {
+	border-top: 1px solid rgb(229, 230, 230);
+}
+details.details-item:first-of-type {
+	border-top: 1px solid rgb(229, 230, 230);
+}
+
+details.details-nested:last-of-type {
+	border-bottom: none;
+}
+
+details::before {
+	width: 100%;
+	height: 100%;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: .15;
+	pointer-events: none;
+	transition: opacity .2s;
+	z-index: -1;
+}
+
+details[open] {
+	/* background-color: whitesmoke; */
+}
+
+details[open]::before {
+	/* opacity: .6; */
+}
+
+details>summary {
+	padding: 16px .5em 20px .5em;
+	display: block;
+	position: relative;
+	font-size: 14px;
+	font-weight: normal;
+	cursor: pointer;
+	outline: none;
+	margin: 0 0 -8px 0;
+}
+
+details>summary::after {
+	float: right;
+	height: .5rem;
+	width: .5rem;
+	margin-right: 1rem;
+	content: url(https://support.brightcove.com/site-assets/images/site/aside-icons/chevron-down-blue.svg);
+}
+details>summary::-webkit-details-marker {
+	display: none;
+}
+
+details[open]>summary::after {
+	float: right;
+	height: .5rem;
+	width: .5rem;
+	content: url(https://support.brightcove.com/site-assets/images/site/aside-icons/chevron-up-blue.svg);
+}
+
+details[open]>summary {
+	border: none;
+	outline: none;
+}
+
+details.details-section>summary {
+	color: rgb(1, 5, 14);
+	font-weight: bold;
+}
+
+details.details-item>summary, details.details-item>summary {
+	color: rgb(8, 8, 140);
+}
+
+details>summary::before, details>summary::after {
+	/* width: .75em;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    content: '';
+    background-color: currentColor;
+    text-align: right; */
+	transform: translateY(-50%);
+	transition: transform .2s ease-in-out;
+}
+
+details.details-section[open]>summary {
+	background-color: rgb(249, 249, 249);
+}
+
+details.details-item[open]>summary  {
+	background-color: rgb(242, 244, 249);
+}
+
+details.details-nested[open]>summary  {
+	background-color: rgb(242, 244, 249);
+}
+
+details.details-item>summary {
+	color: rgb(8, 8, 140);
+}
+
+details.details-nested>summary {
+	color: rgb(8, 8, 140);
+}
+
+details section {
+	background-color: rgb(255, 255, 255);
+	border: none;
+	margin: 16px 0;
+	padding: 16px 0 8px 0;
+	padding-top: 0;
+}
+
+details section p {
+	margin-left: 1rem;
+}
+
+details::after {
+	transform: translateY(-50%) rotate(90deg);
+}
+
+details[open] {
+	/* transform: translateY(-50%) rotate(180deg); */
+}
+
+.-webkit-details-marker {
+	display: none;
+}
+
+/* task list for steps */
+
+.bcls-tasklist {
+	list-style: none;
+	list-style-type: none;
+	margin-left: 0;
+	padding-top: 24px;
+}
+
+.bcls-tasklist>li::before {
+	color: rgb(1, 5, 14);
+	content: counters(step, ".") " ";
+	font-size: 1.3em;
+	font-weight: bold;
+	left: -2em;
+	line-height: 1;
+	position: absolute;
+	text-align: right;
+	top: 0;
+	width: 1.5em;
+}
+
+.bcls-tasklist>li {
+	border-left: 4px solid rgb(229, 230, 230);
+	list-style: none;
+	margin-bottom: 16px;
+	margin-left: -1em;
+	min-height: 1.7em;
+	padding-left: 1em;
+	position: relative;
+	counter-increment: step;
+}
+
+.bcls-tasklist-restart {
+	list-style: none;
+	list-style-type: none;
+	margin-left: 0;
+	padding-top: 24px;
+	counter-reset: rstep calc(var(--s) - 1);
+}
+
+.bcls-tasklist-restart>li {
+	border-left: 4px solid rgb(229, 230, 230);
+	list-style: none;
+	margin-bottom: 16px;
+	margin-left: -1em;
+	min-height: 1.7em;
+	padding-left: 1em;
+	position: relative;
+	counter-increment: rstep;
+}
+
+.bcls-tasklist-restart>li::before {
+	color: rgb(1, 5, 14);
+	content: counters(rstep, ".") " ";
+	/* counter-increment: rstep; */
+	font-size: 1.3em;
+	font-weight: bold;
+	left: -2em;
+	line-height: 1;
+	position: absolute;
+	text-align: right;
+	top: 0;
+	width: 1.5em;
+}
+
+.bcls-tasklist-restart ul, .bcls-tasklist-restart ol {
+	margin-bottom: 1rem;
+	;
+}
+
+.bcl-highlight, .bcls-highlight {
+	background-color: rgb(255, 255, 201);
+	border: 1px rgb(255, 204, 52) solid;
+	padding: 1px;
+}
+
+.ui-image {
+	cursor: not-allowed;
+	width: auto;
+	vertical-align: middle;
+	height: 1.5em;
+}
+
+.imageWithText {
+	width: auto;
+	vertical-align: middle;
+	height: 1.5em;
+}
+
+/* in-app help text buttons */
+.button-blue, .button-blue-text, .button-blue-text-bordered, .button-red, .button-red-text, .button-gray {
+	/* font-family: 'articulat-cf'; */
+	font-weight: bold;
+	font-size: .9rem;
+	padding: .4rem;
+	white-space: nowrap;
+}
+.button-blue {
+	color: rgb(255, 255, 255);
+	background-color: rgb(9, 45, 189);
+}
+.button-blue-text {
+	color: rgb(8, 8, 140);
+	background-color: rgb(255, 255, 255);
+}
+.button-blue-text-bordered {
+	color: rgb(8, 8, 140);
+	background-color: rgb(255, 255, 255);
+  border: 1px rgb(229,230,230) solid;
+  border-radius: 1px;
+}
+.button-red {
+	color: rgb(255, 255, 255);
+	background-color: rgb(211, 61, 0);
+}
+.button-red-text {
+	color: rgb(211, 61, 0);
+	background-color: rgb(255, 255, 255);
+}
+.button-red-text-border {
+  color: rgb(211, 61, 0);
+  background-color: rgb(255, 255, 255);
+  border: 1px rgb(211, 61, 0) solid;
+  border-radius: 2px;
+	padding: 4px;;
+}
+.button-gray {
+	background-color: rgb(242, 244, 249);
+}
+.button-icon {
+	white-space: nowrap;
+  padding-right: .15rem;
+  height: 1rem;
+}
+
+/* info, tips, warnings */
+
+aside, .bcls-aside {
+  margin-bottom: 1em;
+  padding: 1em 2em 1em 3.5em;
+}
+
+.bcls-aside--information {
+  background-color: #f2f4f9;
+  border-left: 4px solid #092dbd;
+}
+
+.bcls-aside--information:before {
+  content: url(https://support.brightcove.com/site-assets/images/site/aside-icons/info-aqua.svg);
+  float: left;
+  margin-left: -2.5em;
+}
+
+
+.bcls-aside--tip {
+  background-color: #d7f6e6;
+  border-left: 4px solid #009e4f;
+}
+
+.bcls-aside--tip:before {
+  content: url(https://support.brightcove.com/site-assets/images/site/aside-icons/lightbulb-blue.svg);
+  float: left;
+  /* color: rgb(8, 8, 139);
+  height: 28px; */
+  margin-left: -2.5em;
+}
+
+
+.bcls-aside--warning {
+  background-color: #fffbf2;
+  border-left: 4px solid #ffba00;
+}
+
+.bcls-aside--warning:before {
+  content: url(https://support.brightcove.com/site-assets/images/site/aside-icons/alert-triangle-gray.svg);
+  float: left;
+  margin-left: -2.5em;
+}
+
+
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Page Contents</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove Support</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">System Status</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contact Support</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Search all documentation</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Training</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Online courses</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Register for a course</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Brightcove Academy</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Bright Spot Community</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Product release notes</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Documentation updates</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. All rights reserved.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacy</a> 
+      <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Terms &amp; Conditions</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439"
+        title="LinkedIn" target="_blank" class="gf-social-linkedin"
+        style="margin-right: 1rem;"><i data-feather="linkedin"
+          style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a
+        href="https://twitter.com/brightcove" title="Twitter" target="_blank"
+        class="gf-social-twitter" style="margin-right: 1rem;"><i
+          data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a
+        href="https://www.facebook.com/Brightcove" title="Facebook"
+        target="_blank" class="gf-social-facebook"><i data-feather="facebook"
+          style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 

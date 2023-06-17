@@ -1,9 +1,0 @@
-<Playlist>
-	<Preroll>
-		<Ad>https://solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-6-5seconds.mp4</Ad>
-	</Preroll>
-	<Midroll timeOffset="00:00:04">
-		<Ad>https://solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-1-8seconds.mp4</Ad>
-	</Midroll>
-	<Postroll/>
-</Playlist>

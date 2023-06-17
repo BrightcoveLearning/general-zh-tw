@@ -1,6 +1,0 @@
----
-layout: null
----
-User-agent: *
-Disallow: /index-staging.html
-Disallow: /developer/create-jwt-stage.html
